@@ -107,60 +107,13 @@
 			<div class="row">
 				<div class="col-lg-6 col-md-12 col-sm-12 align-self-center mobile-bottom-fix">
 					<div class="left-heading">
-						<h2 class="section-title">Our Services</h2>
+						<h2 class="section-title">Who we are</h2>
 					</div>
 					<div class="left-text">
 						<p>Phasellus vitae velit sit amet diam semper commodo quis quis libero. Morbi consequat arcu augue, molestie faucibus metus ullamcorper vel.</p>
-						<div class="row">
-							<div class="col-lg-6 col-md-6 col-sm-12">
-								<a class="btn-home active" href="blue-features-single.html">
-									<i class="fa fa-angle-right"></i>
-									<span>NearCloud</span>
-								</a>
-							</div>
-							<div class="col-lg-6 col-md-6 col-sm-12">
-								<a class="btn-home" href="blue-features-single.html">
-									<i class="fa fa-angle-right"></i>
-									<span>Office Cloud</span>
-								</a>
-							</div>
-							<div class="col-lg-6 col-md-6 col-sm-12">
-								<a class="btn-home" href="blue-features-single.html">
-									<i class="fa fa-angle-right"></i>
-									<span>Backup Systems</span>
-								</a>
-							</div>
-							<div class="col-lg-6 col-md-6 col-sm-12">
-								<a class="btn-home" href="blue-features-single.html">
-									<i class="fa fa-angle-right"></i>
-									<span>Hybrid Cloud</span>
-								</a>
-							</div>
-							<div class="col-lg-6 col-md-6 col-sm-12">
-								<a class="btn-home" href="blue-features-single.html">
-									<i class="fa fa-angle-right"></i>
-									<span>API Cloud</span>
-								</a>
-							</div>
-							<div class="col-lg-6 col-md-6 col-sm-12">
-								<a class="btn-home" href="blue-features-single.html">
-									<i class="fa fa-angle-right"></i>
-									<span>SDK Cloud</span>
-								</a>
-							</div>
-							<div class="col-lg-6 col-md-6 col-sm-12">
-								<a class="btn-home" href="blue-features-single.html">
-									<i class="fa fa-angle-right"></i>
-									<span>Web Services</span>
-								</a>
-							</div>
-							<div class="col-lg-6 col-md-6 col-sm-12">
-								<a class="btn-home" href="blue-features-single.html">
-									<i class="fa fa-angle-right"></i>
-									<span>Cloud Hosting</span>
-								</a>
-							</div>
-						</div>
+						<p>Phasellus vitae velit sit amet diam semper commodo quis quis libero. Morbi consequat arcu augue, molestie faucibus metus ullamcorper vel.</p>
+						<p>Phasellus vitae velit sit amet diam semper commodo quis quis libero. Morbi consequat arcu augue, molestie faucibus metus ullamcorper vel.</p>
+						
 					</div>
 				</div>
 				<div class="col-lg-1"></div>
@@ -183,7 +136,7 @@
 				<div class="col-lg-1"></div>
 				<div class="col-lg-6 col-md-12 col-sm-12 align-self-center mobile-bottom-fix">
 					<div class="left-heading">
-						<h2 class="section-title">Design & Development</h2>
+						<h2 class="section-title">Our Services</h2>
 					</div>
 					<div class="left-text">
 						<p>Phasellus vitae velit sit amet diam semper commodo quis quis libero. Morbi consequat arcu augue, molestie faucibus metus ullamcorper vel.</p>
