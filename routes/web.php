@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// routes/web.php
+
+Auth::routes([
+    'register' => false, // Registration Routes...
+    'reset' => false, // Password Reset Routes...
+    'verify' => false, // Email Verification Routes...
+  ]);
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,6 +29,17 @@ Route::get('/about', [App\Http\Controllers\GeneralController::class, 'about'])->
 Route::get('/contact', [App\Http\Controllers\GeneralController::class, 'contact'])->name('contact');
 
 Route::group(['middleware' => 'auth'], function() {
+    
+    //Services
+    Route::resource('services', "ServiceController");
+    // Setting
+    Route::prefix('setting')->group(function () {
+        // Route::get('/file-manager/index', 			 [App\Http\Controllers\Admin\FileManagerController::class, 'index'])->name('filemanager.index');
+        // Route::get('/website-setting/edit', 		 [App\Http\Controllers\Admin\SettingController::class, 'edit'])->name('website-setting.edit');
+        // Route::post('/website-setting/update/{id}',  [App\Http\Controllers\Admin\SettingController::class, 'update'])->name('website-setting.update');
+        Route::get('/website-setting/edit', 'SettingController@edit')->name('website-setting.edit');
+        Route::post('/website-setting/update/{id}', 'SettingController@edit')->name('website-setting.update');
+    });
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::resource('user', 'UserController');
@@ -35,6 +54,9 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/password/change', 'UserController@getPassword')->name('userGetPassword');
 
     Route::post('/password/change', 'UserController@postPassword')->name('userPostPassword');
+
+
+
 });
 
 

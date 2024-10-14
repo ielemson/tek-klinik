@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="login-logo">
-    <a href="{{ url('/') }}"><b>Laravel</b>Admin</a>
+    <a href="{{ url('/') }}"><b>Tek-Klinik </b> Admin</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -38,24 +38,19 @@
                 @enderror
             </div>
             <div class="row" style="margin-left: 10px;">
-                <div class="col-8">
-                    <div class="icheck-primary">
-                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                        <label for="remember">
-                            Remember Me
-                        </label>
-                    </div>
-                </div>
+               
                 <!-- /.col -->
-                <div class="col-4">
-                    <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                <div class="col-md-12">
+                    {{-- <button type="submit" class="btn btn-primary btn-block">Sign In</button> --}}
+                    <div class="btn-group" role="group" aria-label="login">
+                        <button type="submit" class="btn btn-primary">Sign In</button>
+                        <button type="button" class="btn btn-warning">Go Home</button>
+                      </div>
                 </div>
                 <!-- /.col -->
             </div>
         </form>
-        <p class="mb-0">
-            <a href="{{route('register')}}" class="text-center">Create new account</a>
-        </p>
+       
     </div>
     <!-- /.login-card-body -->
 </div>

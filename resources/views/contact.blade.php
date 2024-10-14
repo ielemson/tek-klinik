@@ -1,111 +1,237 @@
 @extends("layouts.frontend")
-
+@section("title")
+	Contact Us
+@endsection
 @section("content")
-    <!-- ***** Header Area Start ***** -->
-	@include("partials.page-header")
-	<!-- ***** Header Area End ***** -->
 
-
-	<section class="page">
-		<!-- ***** Page Top Start ***** -->
-		@include("partials.hero",["title"=>"Contact"])
-		<!-- ***** Page Top End ***** -->
-
-		<!-- ***** Page Content Start ***** -->
-		<div class="page-bottom">
-			<div class="container">
+@include("partials.header")
+ <!--==============================
+    Breadcumb
+============================== -->
+@include("partials.page-crumb",["title"=>"Contact Us"])
+<section class=" space-top space-extra-bottom">
+	<div class="container">
+	
+		<div class="tab-content" id="nav-contactTabContent">
+			<div class="tab-pane fade show active" id="nav-GermanyAddress" role="tabpanel"
+				aria-labelledby="nav-GermanyAddress-tab">
 				<div class="row">
-					<div class="col-lg-12">
-						<div class="contact">
-							<div class="map-wrapper embed-responsive embed-responsive-4by3">
-								<!-- ***** Google Maps Start ***** -->
-								<iframe class="responsive-iframe"  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63433.912745312664!2d3.394178349556444!3d6.442873646060048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bf4523dd42677%3A0x849e078b14d85d7d!2sLekki%20Phase%20I%2C%20Lagos%20106104%2C%20Lagos!5e0!3m2!1sen!2sng!4v1727768352600!5m2!1sen!2sng" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-								<!-- ***** Google Maps End ***** -->
-							</div>
-							<div class="contact-info">
-								<div class="row">
-									<div class="col-lg-4 col-md-4 col-sm-12">
-										<div class="item">
-											<i class="fa fa-location-arrow"></i>
-											<div class="txt">
-												<span>455 West Orchard Street<br>Kings Mountain, NC 28086</span>
-											</div>
-										</div>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-12">
-										<div class="item">
-											<i class="fa fa-phone"></i>
-											<div class="txt">
-												<span>(272) 211-7370<br>(524) 386-5730</span>
-											</div>
-										</div>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-12">
-										<div class="item">
-											<i class="fa fa-envelope"></i>
-											<div class="txt">
-												<span><a href="mailto:info@yourbrand.com">info@yourbrand.com</a></span>
-											</div>
-										</div>
-										<div class="item">
-											<i class="fa fa-envelope"></i>
-											<div class="txt">
-												<span><a href="mailto:support@yourbrand.com">support@yourbrand.com</a></span>
-											</div>
-										</div>
-									</div>
+					<div class="col-lg-6 mb-30">
+						<div class="contact-box">
+							<h3 class="contact-box__title h4">Germany Office Address</h3>
+							<p class="contact-box__text">Completely recaptiualize 24/7 communities via standards
+								compliant metrics whereas web-enabled content</p>
+							<div class="contact-box__item">
+								<div class="contact-box__icon"><i class="fal fa-phone-alt"></i></div>
+								<div class="media-body">
+									<h4 class="contact-box__label">Phone Number & Email</h4>
+									<p class="contact-box__info"><a href="tel_3a+310259121563">+(310) 2591 21563</a><a
+											href="mailto:info@example.com">info@example.com</a></p>
 								</div>
-								<ul class="social">
-									<li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
-									<li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
-									<li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
-									<li><a href="#"><i class="fa fa-github-square"></i></a></li>
-								</ul>
+							</div>
+							<div class="contact-box__item">
+								<div class="contact-box__icon"><i class="far fa-map-marker-alt"></i></div>
+								<div class="media-body">
+									<h4 class="contact-box__label">Our Office Address</h4>
+									<p class="contact-box__info">258 Dancing Street, Miland Line, HUYI 21563,
+										FrankFrut</p>
+								</div>
+							</div>
+							<div class="contact-box__item">
+								<div class="contact-box__icon"><i class="far fa-clock"></i></div>
+								<div class="media-body">
+									<h4 class="contact-box__label">Official Work Time</h4>
+									<p class="contact-box__info">7:00am - 6:00pm ( Mon - Fri ) Sat, Sun & Holiday
+										Closed</p>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-12">
-						<div class="contact-bottom">
-							<div class="row">
-								<!-- ***** Contact Text Start ***** -->
-								<div class="col-lg-4 col-md-6 col-sm-12">
-									<h5 class="margin-bottom-30">Get in touch</h5>
-									<div class="contact-text">
-										<p>Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam tempus magna vel turpis pharetra dictum. </p>
-										<p>Sed blandit tempus purus, sed sodales leo rutrum vel. Nam vulputate ipsum ac est congue, eget commodo magna lobortis.</p>
+					<div class="col-lg-6 mb-30">
+						<div class="contact-box">
+							<h3 class="contact-box__title h4">Leave a Message</h3>
+							<p class="contact-box__text">We’re Ready To Help You</p>
+							<form class="contact-box__form ajax-contact" action="mail.php" method="POST">
+								<div class="row gx-20">
+									<div class="col-md-6 form-group">
+										<input type="text" name="name" id="name" placeholder="Your Name">
+										<i class="fal fa-user"></i>
+									</div>
+									<div class="col-md-6 form-group">
+										<input type="email" name="email" id="email" placeholder="Email Address">
+										<i class="fal fa-envelope"></i>
+									</div>
+									<div class="col-12 form-group">
+										<select name="subject" id="subject">
+											<option selected disabled hidden>Select subject</option>
+											<option value="Web Development">Web Development</option>
+											<option value="UI Design">UI Design</option>
+											<option value="CMS Development">CMS Development</option>
+											<option value="Theme Development">Theme Development</option>
+											<option value="Wordpress Development">Wordpress Development</option>
+										</select>
+									</div>
+									<div class="col-12 form-group">
+										<textarea name="message" id="message"
+											placeholder="Type Your Message"></textarea>
+									</div>
+									<div class="col-12">
+										<button class="vs-btn">Submit Message<i
+												class="far fa-arrow-right"></i></button>
 									</div>
 								</div>
-								<!-- ***** Contact Text End ***** -->
-
-								<!-- ***** Contact Form Start ***** -->
-								<div class="col-lg-8 col-md-6 col-sm-12">
-									<div class="contact-form">
-										<div class="row">
-											<div class="col-lg-6 col-md-12 col-sm-12">
-												<input type="text" placeholder="Name, surname">
-											</div>
-											<div class="col-lg-6 col-md-12 col-sm-12">
-												<input type="text" placeholder="E-Mail">
-											</div>
-											<div class="col-lg-12">
-												<textarea placeholder="Your message"></textarea>
-											</div>
-											<div class="col-lg-12">
-												<button class="btn-primary-line">SEND</button>
-											</div>
-										</div>
-									</div>
+							</form>
+							<p class="form-messages mb-0 mt-3"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="nav-AustraliaAddress" role="tabpanel"
+				aria-labelledby="nav-AustraliaAddress-tab">
+				<div class="row">
+					<div class="col-lg-6 mb-30">
+						<div class="contact-box">
+							<h3 class="contact-box__title h4">Australia Office Address</h3>
+							<p class="contact-box__text">Completely recaptiualize 24/7 communities via standards
+								compliant metrics whereas web-enabled content</p>
+							<div class="contact-box__item">
+								<div class="contact-box__icon"><i class="fal fa-phone-alt"></i></div>
+								<div class="media-body">
+									<h4 class="contact-box__label">Phone Number & Email</h4>
+									<p class="contact-box__info"><a href="tel_3a+310259121563">+(310) 2591 21563</a><a
+											href="mailto:info@example.com">info@example.com</a></p>
 								</div>
-								<!-- ***** Contact Form End ***** -->
 							</div>
+							<div class="contact-box__item">
+								<div class="contact-box__icon"><i class="far fa-map-marker-alt"></i></div>
+								<div class="media-body">
+									<h4 class="contact-box__label">Our Office Address</h4>
+									<p class="contact-box__info">258 Dancing Street, Miland Line, HUYI 21563,
+										Canberra</p>
+								</div>
+							</div>
+							<div class="contact-box__item">
+								<div class="contact-box__icon"><i class="far fa-clock"></i></div>
+								<div class="media-body">
+									<h4 class="contact-box__label">Official Work Time</h4>
+									<p class="contact-box__info">7:00am - 6:00pm ( Mon - Fri ) Sat, Sun & Holiday
+										Closed</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 mb-30">
+						<div class="contact-box">
+							<h3 class="contact-box__title h4">Leave a Message</h3>
+							<p class="contact-box__text">We’re Ready To Help You</p>
+							<form class="contact-box__form ajax-contact2" action="mail.php" method="POST">
+								<div class="row gx-20">
+									<div class="col-md-6 form-group">
+										<input type="text" name="name" id="name2" placeholder="Your Name">
+										<i class="fal fa-user"></i>
+									</div>
+									<div class="col-md-6 form-group">
+										<input type="email" name="email" id="email2" placeholder="Email Address">
+										<i class="fal fa-envelope"></i>
+									</div>
+									<div class="col-12 form-group">
+										<select name="subject" id="subject2">
+											<option selected disabled hidden>Select subject</option>
+											<option value="Web Development">Web Development</option>
+											<option value="UI Design">UI Design</option>
+											<option value="CMS Development">CMS Development</option>
+											<option value="Theme Development">Theme Development</option>
+											<option value="Wordpress Development">Wordpress Development</option>
+										</select>
+									</div>
+									<div class="col-12 form-group">
+										<textarea name="message" id="message2"
+											placeholder="Type Your Message"></textarea>
+									</div>
+									<div class="col-12">
+										<button class="vs-btn">Submit Message<i
+												class="far fa-arrow-right"></i></button>
+									</div>
+								</div>
+							</form>
+							<p class="form-messages mb-0 mt-3"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+				<div class="row">
+					<div class="col-lg-6 mb-30">
+						<div class="contact-box">
+							<h3 class="contact-box__title h4">United State Office Address</h3>
+							<p class="contact-box__text">Completely recaptiualize 24/7 communities via standards
+								compliant metrics whereas web-enabled content</p>
+							<div class="contact-box__item">
+								<div class="contact-box__icon"><i class="fal fa-phone-alt"></i></div>
+								<div class="media-body">
+									<h4 class="contact-box__label">Phone Number & Email</h4>
+									<p class="contact-box__info"><a href="tel_3a+310259121563">+(310) 2591 21563</a><a
+											href="mailto:info@example.com">info@example.com</a></p>
+								</div>
+							</div>
+							<div class="contact-box__item">
+								<div class="contact-box__icon"><i class="far fa-map-marker-alt"></i></div>
+								<div class="media-body">
+									<h4 class="contact-box__label">Our Office Address</h4>
+									<p class="contact-box__info">258 Dancing Street, Miland Line, HUYI 21563,
+										NewYork</p>
+								</div>
+							</div>
+							<div class="contact-box__item">
+								<div class="contact-box__icon"><i class="far fa-clock"></i></div>
+								<div class="media-body">
+									<h4 class="contact-box__label">Official Work Time</h4>
+									<p class="contact-box__info">7:00am - 6:00pm ( Mon - Fri ) Sat, Sun & Holiday
+										Closed</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 mb-30">
+						<div class="contact-box">
+							<h3 class="contact-box__title h4">Leave a Message</h3>
+							<p class="contact-box__text">We’re Ready To Help You</p>
+							<form class="contact-box__form ajax-contact3" action="mail.php" method="POST">
+								<div class="row gx-20">
+									<div class="col-md-6 form-group">
+										<input type="text" name="name" id="name3" placeholder="Your Name">
+										<i class="fal fa-user"></i>
+									</div>
+									<div class="col-md-6 form-group">
+										<input type="email" name="email" id="email3" placeholder="Email Address">
+										<i class="fal fa-envelope"></i>
+									</div>
+									<div class="col-12 form-group">
+										<select name="subject" id="subject3">
+											<option selected disabled hidden>Select subject</option>
+											<option value="Web Development">Web Development</option>
+											<option value="UI Design">UI Design</option>
+											<option value="CMS Development">CMS Development</option>
+											<option value="Theme Development">Theme Development</option>
+											<option value="Wordpress Development">Wordpress Development</option>
+										</select>
+									</div>
+									<div class="col-12 form-group">
+										<textarea name="message" id="message3"
+											placeholder="Type Your Message"></textarea>
+									</div>
+									<div class="col-12">
+										<button class="vs-btn">Submit Message<i
+												class="far fa-arrow-right"></i></button>
+									</div>
+								</div>
+							</form>
+							<p class="form-messages mb-0 mt-3"></p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- ***** Page Content End ***** -->
-
-	</section>
-
+	</div>
+</section>
 @endsection
