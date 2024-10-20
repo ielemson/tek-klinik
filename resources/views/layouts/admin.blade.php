@@ -94,11 +94,12 @@
                 Anything you want
             </div>
             <!-- Default to the left -->
-            <strong>Copyright © 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+            <strong>Copyright © 2024 <a href="#">Admin-Tek-Klinik</a>.</strong> All rights reserved.
         </footer>
         <div id="sidebar-overlay"></div>
     </div>
-    <!-- ./wrapper -->
+    <!-- ./wrapper --> 
+     @yield("scripts")
     </body>
-
+  
 </html>

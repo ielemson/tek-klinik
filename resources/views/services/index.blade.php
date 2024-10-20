@@ -8,7 +8,7 @@
             <h3 class="card-title">All Services</h3>
     
             <div class="card-tools">
-                <a href="{{ route('services.create') }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Create new permission</a>
+                <a href="{{ route('services.create') }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Create new service</a>
             </div>
         </div>
         <!-- /.card-header -->    

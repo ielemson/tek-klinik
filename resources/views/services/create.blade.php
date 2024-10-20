@@ -31,7 +31,7 @@
 
         <div class="form-group">
             <label for="content">Content</label>
-            <textarea name="content" class="form-control" required></textarea>
+            <textarea name="content"  id="content" class="form-control" required></textarea>
         </div>
 
         <div class="form-group">
@@ -49,5 +49,20 @@
 
 @section('title')
     {{__('Page Settings')}}
+@endsection
+
+@section('scripts')
+    <!-- Include jQuery from CDN -->
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+
+    <!-- Include CKEditor from CDN -->
+    <script src="https://cdn.ckeditor.com/4.25.0/standard/ckeditor.js"></script>
+
+    <script>
+        // Initialize CKEditor
+        CKEDITOR.replace('content')
+
+     
+    </script>
 @endsection
 

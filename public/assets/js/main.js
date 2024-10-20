@@ -417,11 +417,12 @@
             type: "POST",
           })
           .done(function (response) {
+            console.log(response)
             // Make sure that the formMessages div has the 'success' class.
             formMessages.removeClass("error");
             formMessages.addClass("success");
             // Set the message text.
-            formMessages.text(response);
+            formMessages.text("Sucess");
             // Clear the form.
             $(form + ' input:not([type="submit"]),' + form + " textarea").val(
               ""

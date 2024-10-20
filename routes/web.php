@@ -21,12 +21,16 @@ Auth::routes([
     'verify' => false, // Email Verification Routes...
   ]);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+Route::get('/', [App\Http\Controllers\GeneralController::class, 'index'])->name('welcome');
 Route::get('/about', [App\Http\Controllers\GeneralController::class, 'about'])->name('about');
 Route::get('/contact', [App\Http\Controllers\GeneralController::class, 'contact'])->name('contact');
+Route::post('/contact/submit', [App\Http\Controllers\GeneralController::class, 'contact_submit'])->name('contact.send');
+Route::get('/our-service/{slug}', [App\Http\Controllers\GeneralController::class, 'our_service'])->name('our.service');
+Route::get('/reload-captcha', [App\Http\Controllers\GeneralController::class, 'refreshCaptcha'])->name("captcha.refresh");
 
 Route::group(['middleware' => 'auth'], function() {
     
@@ -34,11 +38,9 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('services', "ServiceController");
     // Setting
     Route::prefix('setting')->group(function () {
-        // Route::get('/file-manager/index', 			 [App\Http\Controllers\Admin\FileManagerController::class, 'index'])->name('filemanager.index');
-        // Route::get('/website-setting/edit', 		 [App\Http\Controllers\Admin\SettingController::class, 'edit'])->name('website-setting.edit');
-        // Route::post('/website-setting/update/{id}',  [App\Http\Controllers\Admin\SettingController::class, 'update'])->name('website-setting.update');
         Route::get('/website-setting/edit', 'SettingController@edit')->name('website-setting.edit');
-        Route::post('/website-setting/update/{id}', 'SettingController@edit')->name('website-setting.update');
+        Route::post('/website-setting/update/{id}', 'SettingController@update')->name('website-setting.update');
+        // Route::get('/home', [App\Http\Controllers\SettingController::class, 'index'])->name('home');
     });
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -67,14 +69,7 @@ Route::group(['middleware' => ['auth', 'role_or_permission:admin|create role|cre
 
 });
 
-
-
-
-
-
-
 Auth::routes();
-
 
 //////////////////////////////// axios request
 

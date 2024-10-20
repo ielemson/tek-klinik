@@ -3,38 +3,41 @@
 	Contact Us
 @endsection
 @section("content")
-
+@php
+    $setting = \App\Models\Setting::find(1);
+@endphp
 @include("partials.header")
  <!--==============================
     Breadcumb
 ============================== -->
-@include("partials.page-crumb",["title"=>"Contact Us"])
+@include("partials.page-crumb",["title1"=>"Contact Us", "title2"=>"Contact Us"])
 <section class=" space-top space-extra-bottom">
 	<div class="container">
-	
 		<div class="tab-content" id="nav-contactTabContent">
 			<div class="tab-pane fade show active" id="nav-GermanyAddress" role="tabpanel"
 				aria-labelledby="nav-GermanyAddress-tab">
 				<div class="row">
 					<div class="col-lg-6 mb-30">
 						<div class="contact-box">
-							<h3 class="contact-box__title h4">Germany Office Address</h3>
-							<p class="contact-box__text">Completely recaptiualize 24/7 communities via standards
-								compliant metrics whereas web-enabled content</p>
+							<h3 class="contact-box__title h4">Contact Us</h3>
+							<p class="contact-box__text">
+								Reliable support, anytime. Our web-enabled solutions ensure you get the help you need, quickly and efficiently.
+							</p>
 							<div class="contact-box__item">
 								<div class="contact-box__icon"><i class="fal fa-phone-alt"></i></div>
 								<div class="media-body">
 									<h4 class="contact-box__label">Phone Number & Email</h4>
-									<p class="contact-box__info"><a href="tel_3a+310259121563">+(310) 2591 21563</a><a
-											href="mailto:info@example.com">info@example.com</a></p>
+									<p class="contact-box__info"><a href="javascript:;">{{ $setting->phone }}</a><a
+											href="mailto:{{ $setting->email }}">{{ $setting->email }}</a></p>
 								</div>
 							</div>
 							<div class="contact-box__item">
 								<div class="contact-box__icon"><i class="far fa-map-marker-alt"></i></div>
 								<div class="media-body">
 									<h4 class="contact-box__label">Our Office Address</h4>
-									<p class="contact-box__info">258 Dancing Street, Miland Line, HUYI 21563,
-										FrankFrut</p>
+									<p class="contact-box__info">
+										{{ $setting->address }}
+									</p>
 								</div>
 							</div>
 							<div class="contact-box__item">
@@ -51,182 +54,60 @@
 						<div class="contact-box">
 							<h3 class="contact-box__title h4">Leave a Message</h3>
 							<p class="contact-box__text">We’re Ready To Help You</p>
-							<form class="contact-box__form ajax-contact" action="mail.php" method="POST">
+							<form class="contact-box__form" method="POST" id="contactForm" data-parsley-validate>
+								@csrf
 								<div class="row gx-20">
 									<div class="col-md-6 form-group">
-										<input type="text" name="name" id="name" placeholder="Your Name">
+										<input type="text" name="name" id="name" placeholder="Your Name" required data-parsley-trigger="change">
 										<i class="fal fa-user"></i>
 									</div>
 									<div class="col-md-6 form-group">
-										<input type="email" name="email" id="email" placeholder="Email Address">
+										<input type="email" name="email" id="email" placeholder="Email Address" required data-parsley-trigger="change">
 										<i class="fal fa-envelope"></i>
 									</div>
 									<div class="col-12 form-group">
-										<select name="subject" id="subject">
-											<option selected disabled hidden>Select subject</option>
-											<option value="Web Development">Web Development</option>
-											<option value="UI Design">UI Design</option>
-											<option value="CMS Development">CMS Development</option>
-											<option value="Theme Development">Theme Development</option>
-											<option value="Wordpress Development">Wordpress Development</option>
-										</select>
+										<input type="text" name="subject" id="subject" placeholder="Subject" required data-parsley-trigger="change">
 									</div>
+
+									<div class="col-12 form-group mb-2">
+                                       
+                                        <div class="captcha">
+                                            <span>{!! captcha_img() !!}</span>
+                                            {{-- <button type="button" class="btn btn-danger" class="reload" id="reload">
+                                                &#x21bb;
+                                            </button> --}}
+                                            <button type="button" class="btn btn-secondary" id="btn-refresh">Refresh</button>
+                                        </div>
+
+                                        <input type="text" class="form-control" id="captcha" name="captcha" required data-parsley-required-message="Captcha is required">
+                                    </div>
+
 									<div class="col-12 form-group">
-										<textarea name="message" id="message"
-											placeholder="Type Your Message"></textarea>
+										<textarea name="message_body" id="message_body"
+											placeholder="Type Your Message" required data-parsley-trigger="change"></textarea>
 									</div>
+
+
 									<div class="col-12">
-										<button class="vs-btn">Submit Message<i
-												class="far fa-arrow-right"></i></button>
+										<button class="vs-btn">Submit Message
+										<i class="far fa-arrow-right"></i></button>
+										&nbsp;
+                                        <div class="spinner-border text-info text-sm" role="status">
+                                            <span class="sr-only">Loading...</span>
+										</div>
 									</div>
 								</div>
 							</form>
 							<p class="form-messages mb-0 mt-3"></p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="tab-pane fade" id="nav-AustraliaAddress" role="tabpanel"
-				aria-labelledby="nav-AustraliaAddress-tab">
-				<div class="row">
-					<div class="col-lg-6 mb-30">
-						<div class="contact-box">
-							<h3 class="contact-box__title h4">Australia Office Address</h3>
-							<p class="contact-box__text">Completely recaptiualize 24/7 communities via standards
-								compliant metrics whereas web-enabled content</p>
-							<div class="contact-box__item">
-								<div class="contact-box__icon"><i class="fal fa-phone-alt"></i></div>
-								<div class="media-body">
-									<h4 class="contact-box__label">Phone Number & Email</h4>
-									<p class="contact-box__info"><a href="tel_3a+310259121563">+(310) 2591 21563</a><a
-											href="mailto:info@example.com">info@example.com</a></p>
-								</div>
+							   <!-- Success message -->
+							   <div id="successMessage" style="display:none; color: green;">
+								Your message has been sent successfully!
 							</div>
-							<div class="contact-box__item">
-								<div class="contact-box__icon"><i class="far fa-map-marker-alt"></i></div>
-								<div class="media-body">
-									<h4 class="contact-box__label">Our Office Address</h4>
-									<p class="contact-box__info">258 Dancing Street, Miland Line, HUYI 21563,
-										Canberra</p>
-								</div>
+					
+							<!-- Error message -->
+							<div id="errorMessage" style="display:none; color: red;">
+								Something went wrong. Please try again.
 							</div>
-							<div class="contact-box__item">
-								<div class="contact-box__icon"><i class="far fa-clock"></i></div>
-								<div class="media-body">
-									<h4 class="contact-box__label">Official Work Time</h4>
-									<p class="contact-box__info">7:00am - 6:00pm ( Mon - Fri ) Sat, Sun & Holiday
-										Closed</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-6 mb-30">
-						<div class="contact-box">
-							<h3 class="contact-box__title h4">Leave a Message</h3>
-							<p class="contact-box__text">We’re Ready To Help You</p>
-							<form class="contact-box__form ajax-contact2" action="mail.php" method="POST">
-								<div class="row gx-20">
-									<div class="col-md-6 form-group">
-										<input type="text" name="name" id="name2" placeholder="Your Name">
-										<i class="fal fa-user"></i>
-									</div>
-									<div class="col-md-6 form-group">
-										<input type="email" name="email" id="email2" placeholder="Email Address">
-										<i class="fal fa-envelope"></i>
-									</div>
-									<div class="col-12 form-group">
-										<select name="subject" id="subject2">
-											<option selected disabled hidden>Select subject</option>
-											<option value="Web Development">Web Development</option>
-											<option value="UI Design">UI Design</option>
-											<option value="CMS Development">CMS Development</option>
-											<option value="Theme Development">Theme Development</option>
-											<option value="Wordpress Development">Wordpress Development</option>
-										</select>
-									</div>
-									<div class="col-12 form-group">
-										<textarea name="message" id="message2"
-											placeholder="Type Your Message"></textarea>
-									</div>
-									<div class="col-12">
-										<button class="vs-btn">Submit Message<i
-												class="far fa-arrow-right"></i></button>
-									</div>
-								</div>
-							</form>
-							<p class="form-messages mb-0 mt-3"></p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-				<div class="row">
-					<div class="col-lg-6 mb-30">
-						<div class="contact-box">
-							<h3 class="contact-box__title h4">United State Office Address</h3>
-							<p class="contact-box__text">Completely recaptiualize 24/7 communities via standards
-								compliant metrics whereas web-enabled content</p>
-							<div class="contact-box__item">
-								<div class="contact-box__icon"><i class="fal fa-phone-alt"></i></div>
-								<div class="media-body">
-									<h4 class="contact-box__label">Phone Number & Email</h4>
-									<p class="contact-box__info"><a href="tel_3a+310259121563">+(310) 2591 21563</a><a
-											href="mailto:info@example.com">info@example.com</a></p>
-								</div>
-							</div>
-							<div class="contact-box__item">
-								<div class="contact-box__icon"><i class="far fa-map-marker-alt"></i></div>
-								<div class="media-body">
-									<h4 class="contact-box__label">Our Office Address</h4>
-									<p class="contact-box__info">258 Dancing Street, Miland Line, HUYI 21563,
-										NewYork</p>
-								</div>
-							</div>
-							<div class="contact-box__item">
-								<div class="contact-box__icon"><i class="far fa-clock"></i></div>
-								<div class="media-body">
-									<h4 class="contact-box__label">Official Work Time</h4>
-									<p class="contact-box__info">7:00am - 6:00pm ( Mon - Fri ) Sat, Sun & Holiday
-										Closed</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-6 mb-30">
-						<div class="contact-box">
-							<h3 class="contact-box__title h4">Leave a Message</h3>
-							<p class="contact-box__text">We’re Ready To Help You</p>
-							<form class="contact-box__form ajax-contact3" action="mail.php" method="POST">
-								<div class="row gx-20">
-									<div class="col-md-6 form-group">
-										<input type="text" name="name" id="name3" placeholder="Your Name">
-										<i class="fal fa-user"></i>
-									</div>
-									<div class="col-md-6 form-group">
-										<input type="email" name="email" id="email3" placeholder="Email Address">
-										<i class="fal fa-envelope"></i>
-									</div>
-									<div class="col-12 form-group">
-										<select name="subject" id="subject3">
-											<option selected disabled hidden>Select subject</option>
-											<option value="Web Development">Web Development</option>
-											<option value="UI Design">UI Design</option>
-											<option value="CMS Development">CMS Development</option>
-											<option value="Theme Development">Theme Development</option>
-											<option value="Wordpress Development">Wordpress Development</option>
-										</select>
-									</div>
-									<div class="col-12 form-group">
-										<textarea name="message" id="message3"
-											placeholder="Type Your Message"></textarea>
-									</div>
-									<div class="col-12">
-										<button class="vs-btn">Submit Message<i
-												class="far fa-arrow-right"></i></button>
-									</div>
-								</div>
-							</form>
-							<p class="form-messages mb-0 mt-3"></p>
 						</div>
 					</div>
 				</div>
@@ -234,4 +115,78 @@
 		</div>
 	</div>
 </section>
+<div class="ratio ratio-21x9">
+	<iframe
+		src="{{ $setting->google_map }}"
+		allowfullscreen=""></iframe>
+</div>
+
+@section("styles")
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
+<style>
+	.parsley-required{
+		list-style-type: none;
+		color: rgb(133, 8, 8);
+		font-weight: 800;
+		font-size: 0.8rem;
+		margin-top: 4px
+	}
+</style>
+@endsection
+@section("scripts")
+  <!-- Include Parsley JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+  <script>
+	  $(document).ready(function() {
+            $('#btn-refresh').click(function () {
+        $.ajax({
+            type: 'GET',
+            url: 'reload-captcha',
+            success: function (data) {
+                $(".captcha span").html(data.captcha);
+            }
+        });
+    });
+	$('.spinner-border').hide(); // Hide spinner
+           
+        });
+
+	$('#contactForm').on('submit', function(event) {
+                event.preventDefault();
+
+                if ($(this).parsley().isValid()) {
+                    $('.spinner-border').show(); // Show spinner
+
+                    $.ajax({
+                        url: '{{ route('contact.send') }}',
+                        method: 'POST',
+                        data: $(this).serialize(),
+                        success: function(response) {
+                            swal("Success!", response.message, "success");
+                            $('#contactForm')[0].reset();
+                            $('#btn-refresh').click(); // Refresh captcha image
+                            $('.spinner-border').hide(); // Hide spinner
+                        },
+                        error: function(response) {
+                            var errors = response.responseJSON.errors;
+                            var errorMessage = "";
+                            $.each(errors, function(key, value) {
+                                errorMessage += value[0] + "\n";
+                            });
+                            swal("Error!", errorMessage, "error");
+                            $('.spinner-border').hide(); // Hide spinner
+                        }
+                    });
+                } else {
+                    $(this).parsley().on('field:error', function() {
+                        var errors = this.getErrorsMessages();
+                        swal("Validation Error", errors.join("\n"), "error");
+                    });
+                }
+            });
+</script>
+@endsection
 @endsection

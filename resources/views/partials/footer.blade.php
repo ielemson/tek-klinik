@@ -1,48 +1,59 @@
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-5 col-md-12 col-sm-12">
-                <img src="assets/images/logo-blue.png" class="logo" alt="">
-                <div class="text">Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 col-6">
-                <h5>Helpful Links</h5>
-                <ul class="footer-nav">
-                    <li><a href="#"><i class="fa fa-angle-right"></i><span>About Us</span></a></li>
-                    <li><a href="#"><i class="fa fa-angle-right"></i><span>Features</span></a></li>
-                    <li><a href="#"><i class="fa fa-angle-right"></i><span>FAQ’s</span></a></li>
-                    <li><a href="#"><i class="fa fa-angle-right"></i><span>Blog</span></a></li>
-                </ul>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6 col-6">
-                <h5>Support</h5>
-                <ul class="footer-nav">
-                    <li><a href="#"><i class="fa fa-angle-right"></i><span>Privacy Policy</span></a></li>
-                    <li><a href="#"><i class="fa fa-angle-right"></i><span>Terms of Use</span></a></li>
-                    <li><a href="#"><i class="fa fa-angle-right"></i><span>Support Center</span></a></li>
-                    <li><a href="#"><i class="fa fa-angle-right"></i><span>Contact</span></a></li>
-                </ul>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-12">
-                <h5>Contact Us</h5>
-                <div class="address">
-                    <p>455 West Orchard Street<br>Kings Mountain, NC 28086</p>
-                    <p>Phone: (272) 211-7370</p>
-                    <p><span>E-Mail:</span><a href="#">support@yourbrand.com</a></p>
-                    <ul class="social">
-                        <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
-                        <li><a href="#"><i class="fa fa-github-square"></i></a></li>
-                    </ul>
+<footer class="footer-wrapper footer-layout2" data-bg-src="{{ asset("assets/img/bg/footer-bg-2-1.jpg") }}">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row align-items-center justify-content-between gy-30">
+                <div class="col-sm-auto">
+                    <div class="footer-top-logo">
+                        <a href="index.html"><img src="{{ asset("images/settings/$setting->website_logo_dark") }}" alt="TechBiz" class="logo"></a>
+                    </div>
+                </div>
+                <div class="col-sm-auto">
+                    <div class="footer-social">
+                        <span class="social-title">Follow Us On:</span>
+                        <a href=" {{ $setting->facebook }} "><i class="fab fa-facebook-f"></i></a>
+                        <a href=" {{ $setting->twitter }} "><i class="fab fa-twitter"></i></a>
+                        <a href=" {{ $setting->instagram }} "><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <p class="copyright">© {{ Date("Y") }} Tek-klinik. All Rights Reserved.</p>
+    </div>
+    <div class="widget-area">
+        <div class="container">
+            <div class="row justify-content-between gx-80">
+                <div class="col-md-6 col-lg-4 col-xl-auto col-xxl order-2 order-lg-1">
+                    <div class="widget widget_nav_menu  footer-widget">
+                        <h3 class="widget_title">Quick Links</h3>
+                        <div class="menu-all-pages-container footer-links">
+                            <ul class="menu">
+                                <li><a href="{{ route("about") }}">About Us</a></li>
+                                <li><a href="{{ route("about") }}">Our Mission</a></li>
+                                <li><a href="{{ route("about") }}">Our Vision</a></li>
+                                <li><a href="{{ route("contact") }}">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xl-auto order-1 order-lg-2">
+                    <div class="widget footer-widget">
+                        <h3 class="widget_title">About Company</h3>
+                        <div class="vs-widget-about">
+                            <p class="footer-text">
+                                {{ \Illuminate\Support\Str::limit($setting->about, 150, '...') }}
+                            </p>
+                           
+                        </div>
+                    </div>
+                </div>
+              
             </div>
+        </div>
+    </div>
+    <div class="copyright-wrap">
+        <div class="container">
+            <p class="copyright-text">Copyright <i class="fal fa-copyright"></i> {{ Date("Y") }} <a class="text-white"
+                    href="index.html">{{ __("Tek-Klinik")}}</a>. All rights reserved by <a class="text-white"
+                    href="{{ route("welcome") }}">Tek-Klinik</a>.</p>
         </div>
     </div>
 </footer>
