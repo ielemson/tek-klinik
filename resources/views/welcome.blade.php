@@ -103,7 +103,7 @@ About Features
 Service Area
 ==============================-->
 @if (count($services)>0)
-<section class=" space-top space-extra-bottom bg-smoke" data-bg-src="assets/img/bg/sr-bg-2-1.jpg">
+<section class=" space-top space-extra-bottom bg-smoke" data-bg-src="{{ asset("assets/img/bg/sr-bg-2-1.jpg") }}">
 	<div class="container  wow fadeInUp" data-wow-delay="0.2s">
 		<div class="row justify-content-center text-center">
 			<div class="col-xl-6">
@@ -125,8 +125,8 @@ Service Area
 						<img src="{{ asset('storage/'.$service->image) }}" alt="image">
 					</div>
 					<div class="service-content">
-						<div class="service-shape" data-bg-src="assets/img/shape/sr-bg-shape-2-1.png"></div>
-						<h3 class="service-title h5"><a href="service-details.html">{{ $service->title }}</a></h3>
+						<div class="service-shape" data-bg-src="{{ asset("assets/img/shape/sr-bg-shape-2-1.png") }}"></div>
+						<h3 class="service-title h5"><a href="{{ route("our.service",$service->slug) }}">{{ $service->title }}</a></h3>
 						<p class="service-text" style="text-align: justify">
 							{{ \Illuminate\Support\Str::limit($service->content, 100, '...') }}  
 						</p>
