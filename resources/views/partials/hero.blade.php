@@ -9,8 +9,8 @@
 				<div class="container">
 					<div class="hero-content">
 						
-						<span class="hero-subtitle">SUCCESS YOUR BUSINESS</span>
-						<h1 class="hero-title">Excellent IT services for your success</h1>
+						<span class="hero-subtitle">24/7 Remote IT Support</span>
+						<h1 class="hero-title">Exceptional IT Services for Uninterrupted Success</h1>
 						<div class="hero-btns">
 							<a href="{{ route("about") }}" class="vs-btn ls-hero-btn">ABOUT US<i
 									class="far fa-arrow-right"></i></a>
