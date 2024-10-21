@@ -33,7 +33,7 @@
                                 data-bs-parent="#faqVersion1">
                                 <div class="accordion-body">
                                     <p style="text-align: justify"> 
-                                    {{ $setting->our_vision }}
+                                    {!! $setting->our_vision !!}
                                     </p>
                                 </div>
                             </div>
@@ -49,7 +49,7 @@
                                 data-bs-parent="#faqVersion1">
                                 <div class="accordion-body">
                                     <p style="text-align: justify"> 
-                                        {{ $setting->our_mission }}
+                                        {!! $setting->our_mission !!}
                                     </p>
                                 </div>
                             </div>

@@ -12,7 +12,7 @@
 				<span class="sec-subtitle"><i class="fas fa-bring-forward"></i>ABOUT US</span>
 				<h2 class="sec-title3 h1">About Tek-klinik</h2>
 				<p class="mb-4 pb-2 pe-xl-5" style="text-align:justify">
-                    {{ \Illuminate\Support\Str::limit($setting->about, 500, '...') }}
+                    {!!  \Illuminate\Support\Str::limit($setting->about, 500, '...')  !!}
                 </p>
 				
 				<a href="{{ route("about") }}" class="vs-btn">Read More<i class="far fa-arrow-right"></i></a>

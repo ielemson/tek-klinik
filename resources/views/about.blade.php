@@ -25,7 +25,7 @@
                     <div class="about-box2">
                         <span class="sec-subtitle"><i class="fas fa-bring-forward"></i>About Tek-Klinik</span>
                         <h2 class="sec-title3 h1">About Us</h2>
-                        <p style="text-align: justify">{{ $setting->about }}</p>
+                        <p style="text-align: justify">{!!  $setting->about  !!}</p>
 
                     </div>
                 </div>
