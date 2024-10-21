@@ -10,7 +10,7 @@
  <!--==============================
     Breadcumb
 ============================== -->
-@include("partials.page-crumb",["title"=>"About Us"])
+@include("partials.page-crumb",["title1"=>"About Us","title2"=>"About Us"])
 
   <!--==============================
     About Us
