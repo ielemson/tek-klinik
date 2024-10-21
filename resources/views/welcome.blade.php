@@ -86,15 +86,17 @@ About Features
   <!--==============================
     CTA Area
     ==============================-->
-    <section class="z-index-common space" data-bg-src="{{ asset("assets/img/bg/cta-bg-1-2.png") }}">
+    <section class="z-index-common space wow fadeInUp" data-wow-delay="0.2s" data-bg-src="{{ asset("assets/img/bg/cta-bg-1-2.png") }}">
         <div class="container">
             <div class="row text-center text-lg-start align-items-center justify-content-between">
                 <div class="col-lg-auto">
-                    <span class="sec-subtitle text-white">We are here to answer your questions 24/7</span>
-                    <h2 class="h1 sec-title cta-title1">Need A Consultation?</h2>
+					<h2 class="h1 sec-title cta-title1">Need a Consultation?</h2>
+				
+                    <span class="sec-subtitle text-white">We are Available 24/7 to Answer Your Questions</span>
+                    
                 </div>
                 <div class="col-lg-auto">
-                    <a href="{{ route("contact") }}" class="vs-btn">Get in touch<i class="far fa-arrow-right"></i></a>
+                    <a href="{{ route("contact") }}" class="vs-btn">Get Started<i class="far fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -102,6 +104,8 @@ About Features
 <!--==============================
 Service Area
 ==============================-->
+
+@include("partials.why-choose-us")
 @if (count($services)>0)
 <section class=" space-top space-extra-bottom bg-smoke" data-bg-src="{{ asset("assets/img/bg/sr-bg-2-1.jpg") }}">
 	<div class="container  wow fadeInUp" data-wow-delay="0.2s">

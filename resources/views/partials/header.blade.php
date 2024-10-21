@@ -113,6 +113,9 @@ Sidemenu
 									<li>
 										<a href="{{route("about")}}">About Us</a>
 									</li>
+									<li>
+										<a href="javascript:;">Our Team</a>
+									</li>
 										@if (count($services)> 0)
 										<li class="menu-item-has-children">
 											<a href="javascript:;">Service</a>
