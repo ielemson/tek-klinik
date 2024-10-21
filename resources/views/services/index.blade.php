@@ -16,7 +16,6 @@
       </div>
       <div class="container">
         @if (count($services) > 0)
-        @foreach($services as $service)
         <div class="row">
             @foreach($services as $service)
                 <div class="col-md-4 mb-4">
@@ -44,7 +43,6 @@
                 </div>
             @endforeach
         </div>
-    @endforeach
         @endif
       </div>
 @endsection
