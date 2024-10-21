@@ -126,7 +126,7 @@ Service Area
 					</div>
 					<div class="service-content">
 						<div class="service-shape" data-bg-src="assets/img/shape/sr-bg-shape-2-1.png"></div>
-						<h3 class="service-title h5"><a href="service-details.html">Digital Marketing</a></h3>
+						<h3 class="service-title h5"><a href="service-details.html">{{ $service->title }}</a></h3>
 						<p class="service-text" style="text-align: justify">
 							{{ \Illuminate\Support\Str::limit($service->content, 100, '...') }}  
 						</p>
