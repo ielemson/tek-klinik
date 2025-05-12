@@ -44,7 +44,7 @@
                     {{-- <button type="submit" class="btn btn-primary btn-block">Sign In</button> --}}
                     <div class="btn-group" role="group" aria-label="login">
                         <button type="submit" class="btn btn-primary">Sign In</button>
-                        <button type="button" class="btn btn-warning">Go Home</button>
+                        <a href="{{ route("welcome") }}" class="btn btn-warning">Go Home</a>
                       </div>
                 </div>
                 <!-- /.col -->
