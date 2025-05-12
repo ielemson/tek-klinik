@@ -22,7 +22,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{route("home")}}" class="nav-link">
                         <i class="nav-icon fas fa-chalkboard"></i>
                         <p>
                             Dashboard
@@ -37,7 +37,7 @@
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
+                    {{-- <ul class="nav nav-treeview">
                         @can('create role')
                             <li class="nav-item">
                                 <a href="{{ route('role.index') }}" class="nav-link">
@@ -58,7 +58,7 @@
                                 <p>Users</p>
                             </a>
                         </li>
-                    </ul>
+                    </ul> --}}
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('user.profile') }}" class="nav-link">
@@ -82,12 +82,12 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ route('userGetPassword') }}" class="nav-link">
                     <i class="fas fa-lock nav-icon"></i>
                     <p>Change Password</p>
                     </a>
-                </li>
+                </li> --}}
 
                 <li class="nav-item">
                     <a href="{{ route("services.index") }}" class="nav-link">
