@@ -31,12 +31,12 @@
 
         <div class="form-group">
             <label for="content">Content</label>
-            <textarea name="content"  id="content" class="form-control" required></textarea>
+            <textarea name="content" class="form-control summernote" required></textarea>
         </div>
 
         <div class="form-group">
-            <label for="image">Image</label>
-            <input type="file" name="image" class="form-control-file" required>
+            <label for="image">Image Banner</label>
+            <input type="file" name="banner" class="form-control-file" required>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
@@ -48,21 +48,28 @@
 
 
 @section('title')
-    {{__('Page Settings')}}
+    {{__('Create Services')}}
 @endsection
 
-@section('scripts')
-    <!-- Include jQuery from CDN -->
-    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
-
-    <!-- Include CKEditor from CDN -->
-    <script src="https://cdn.ckeditor.com/4.25.0/standard/ckeditor.js"></script>
-
-    <script>
-        // Initialize CKEditor
-        CKEDITOR.replace('content')
-
-     
-    </script>
-@endsection
+@push('scripts')
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+        <script>
+            $('.summernote').summernote({
+                placeholder: 'Please ensure to paste from MS word, Notepad. Avoid pasting directly from other websites.',
+                tabsize: 2,
+                height: 300,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
+        </script>
+@endpush
 

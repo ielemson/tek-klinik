@@ -10,118 +10,152 @@
  <!--==============================
     Breadcumb
 ============================== -->
-@include("partials.page-crumb",["title1"=>"Contact Us", "title2"=>"Contact Us"])
-<section class=" space-top space-extra-bottom">
-	<div class="container">
-		<div class="tab-content" id="nav-contactTabContent">
-			<div class="tab-pane fade show active" id="nav-GermanyAddress" role="tabpanel"
-				aria-labelledby="nav-GermanyAddress-tab">
-				<div class="row">
-					<div class="col-lg-6 mb-30">
-						<div class="contact-box">
-							<h3 class="contact-box__title h4">Contact Us</h3>
-							<p class="contact-box__text">
-								Reliable support, anytime. Our web-enabled solutions ensure you get the help you need, quickly and efficiently.
-							</p>
-							<div class="contact-box__item">
-								<div class="contact-box__icon"><i class="fal fa-phone-alt"></i></div>
-								<div class="media-body">
-									<h4 class="contact-box__label">Phone Number & Email</h4>
-									<p class="contact-box__info"><a href="javascript:;">{{ $setting->phone }}</a><a
-											href="mailto:{{ $setting->email }}">{{ $setting->email }}</a></p>
-								</div>
-							</div>
-							<div class="contact-box__item">
-								<div class="contact-box__icon"><i class="far fa-map-marker-alt"></i></div>
-								<div class="media-body">
-									<h4 class="contact-box__label">Our Office Address</h4>
-									<p class="contact-box__info">
-										{{ $setting->address }}
-									</p>
-								</div>
-							</div>
-							<div class="contact-box__item">
-								<div class="contact-box__icon"><i class="far fa-clock"></i></div>
-								<div class="media-body">
-									<h4 class="contact-box__label">Official Work Time</h4>
-									<p class="contact-box__info">7:00am - 6:00pm ( Mon - Fri ) Sat, Sun & Holiday
-										Closed</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-6 mb-30">
-						<div class="contact-box">
-							<h3 class="contact-box__title h4">Leave a Message</h3>
-							<p class="contact-box__text">We’re Ready To Help You</p>
-							<form class="contact-box__form" method="POST" id="contactForm" data-parsley-validate>
+@include("partials.page_banner",["title"=>"Contact Us", "title1"=>"Contact Us"])
+
+
+    <!-- Start Contact Us 
+    ============================================= -->
+    <div class="contact-style-one-area overflow-hidden default-padding">
+
+        <div class="contact-shape">
+            <img src="assets/img/shape/37.png" alt="Image Not Found">
+        </div>
+       
+        <div class="container">
+            <div class="row align-center">
+
+                <div class="contact-stye-one col-lg-5 mb-md-50 mb-xs-20">
+
+                    <div class="contact-style-one-info">
+                        <h2 class="split-text">We’d Love to Hear From You</h2>
+                        <p class="wow fadeInUp" data-wow-delay="100ms">
+                           Whether you have a question about our services, need assistance, or want to partner with us, our team is ready to help. Reach out through any of the contact options below, and we’ll respond promptly.
+                        </p>
+                        <ul>
+                            <li class="wow fadeInUp">
+                                <div class="icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="content">
+                                    <h5 class="title">Hotline</h5>
+                                    <a href="tel:{{$setting->phone}}">{{$setting->phone}}</a>
+                                </div>
+                            </li>
+                            <li class="wow fadeInUp" data-wow-delay="300ms">
+                                <div class="icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="info">
+                                    <h5 class="title">Our Location</h5>
+                                    <p>
+                                   {{$setting->address}}
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="wow fadeInUp" data-wow-delay="500ms">
+                                <div class="icon">
+                                    <i class="fas fa-envelope-open-text"></i>
+                                </div>
+                                <div class="info">
+                                    <h5 class="title">Official Email</h5>
+                                    <a href="mailto:{{$setting->email}}">{{$setting->email}}</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="contact-stye-one col-lg-7 pl-60 pl-md-15 pl-xs-15">
+                    <div class="contact-form-style-one">
+                        <h5 class="sub-title">Have Questions?</h5>
+                        <h2 class="title">Send us a Massage</h2>
+                        <form  method="POST" class="contact-form contact-form" id="contactForm" data-parsley-validate>
 								@csrf
-								<div class="row gx-20">
-									<div class="col-md-6 form-group">
-										<input type="text" name="name" id="name" placeholder="Your Name" required data-parsley-trigger="change">
-										<i class="fal fa-user"></i>
-									</div>
-									<div class="col-md-6 form-group">
-										<input type="email" name="email" id="email" placeholder="Email Address" required data-parsley-trigger="change">
-										<i class="fal fa-envelope"></i>
-									</div>
-									<div class="col-12 form-group">
-										<input type="text" name="subject" id="subject" placeholder="Subject" required data-parsley-trigger="change">
-									</div>
-
-									<div class="col-12 form-group mb-2">
-                                       
-                                        <div class="captcha">
-                                            <span>{!! captcha_img() !!}</span>
-                                            {{-- <button type="button" class="btn btn-danger" class="reload" id="reload">
-                                                &#x21bb;
-                                            </button> --}}
-                                            <button type="button" class="btn btn-secondary" id="btn-refresh">Refresh</button>
-                                        </div>
-
-                                        <input type="text" class="form-control" id="captcha" name="captcha" required data-parsley-required-message="Captcha is required">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <input class="form-control" id="name" name="name" placeholder="Name" type="text" required data-parsley-trigger="change">
+                                        <span class="alert-error"></span>
                                     </div>
+                                </div>
+                            </div>
+                           
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input class="form-control" id="email" name="email" placeholder="Email*" type="email" required data-parsley-trigger="change">
+                                        <span class="alert-error"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input class="form-control" id="phone" name="phone" placeholder="Phone" type="text" required data-parsley-trigger="change">
+                                        <span class="alert-error"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required data-parsley-trigger="change">
+                                        <span class="alert-error"></span>
+                                    </div>
+                                </div>
+                                {{-- captcha Starts --}}
+                                  <div class="col-lg-6">
+                                    <div class="form-group captcha">
+                                         <span>{!! captcha_img() !!}</span>
+                                            <button type="button" class="btn btn-theme btn-xs mt-2" id="btn-refresh">Refresh</button>
+                                       
+                                    </div>
+                                </div>
+                                  <div class="col-lg-6">
+                                    <div class="form-group">
+                                           <input type="text" class="form-control" id="captcha" name="captcha" placeholder="Enter captcha" required data-parsley-required-message="Captcha is required">
+                                        <span class="alert-error"></span>
+                                    </div>
+                                </div>
+                                {{-- captcha Ends --}}
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group comments">
+                                        <textarea class="form-control" id="comments" name="message_body" placeholder="Message" required data-parsley-trigger="change"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <button type="submit" name="submit" id="submit">
+                                        <i class="fa fa-paper-plane"></i> Get in Touch
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Alert Message -->
+                            {{-- <div class="col-lg-12 alert-notification">
+                                <div id="message" class="alert-msg"></div>
+                            </div> --}}
+                        </form>
+                    </div>
+                </div>
 
-									<div class="col-12 form-group">
-										<textarea name="message_body" id="message_body"
-											placeholder="Type Your Message" required data-parsley-trigger="change"></textarea>
-									</div>
+                
 
+            </div>
+        </div>
+    </div>
 
-									<div class="col-12">
-										<button class="vs-btn">Submit Message
-										<i class="far fa-arrow-right"></i></button>
-										&nbsp;
-                                        <div class="spinner-border text-info text-sm" role="status">
-                                            <span class="sr-only">Loading...</span>
-										</div>
-									</div>
-								</div>
-							</form>
-							<p class="form-messages mb-0 mt-3"></p>
-							   <!-- Success message -->
-							   <div id="successMessage" style="display:none; color: green;">
-								Your message has been sent successfully!
-							</div>
-					
-							<!-- Error message -->
-							<div id="errorMessage" style="display:none; color: red;">
-								Something went wrong. Please try again.
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<div class="ratio ratio-21x9">
-	<iframe
-		src="{{ $setting->google_map }}"
-		allowfullscreen=""></iframe>
-</div>
+    {{-- @include("partials.home_contact_us") --}}
+    <!-- End Contact -->
 
-@section("styles")
+    <!-- Start Map 
+    ============================================= -->
+    <div class="maps-area bg-gray overflow-hidden">
+        <div class="google-maps">
+            <iframe src="{{$setting->google_map}}"></iframe>
+        </div>
+    </div>
+    <!-- End Map -->
+
+@push("styles")
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
 <style>
@@ -133,8 +167,9 @@
 		margin-top: 4px
 	}
 </style>
-@endsection
-@section("scripts")
+@endpush
+
+@push("scripts")
   <!-- Include Parsley JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
@@ -180,13 +215,14 @@
                             $('.spinner-border').hide(); // Hide spinner
                         }
                     });
-                } else {
-                    $(this).parsley().on('field:error', function() {
-                        var errors = this.getErrorsMessages();
-                        swal("Validation Error", errors.join("\n"), "error");
-                    });
                 }
+                //  else {
+                //     $(this).parsley().on('field:error', function() {
+                //         var errors = this.getErrorsMessages();
+                //         swal("Validation Error", errors.join("\n"), "error");
+                //     });
+                // }
             });
 </script>
-@endsection
+@endpush
 @endsection

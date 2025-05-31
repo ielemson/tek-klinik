@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\ContactFormMail;
 use App\Models\Service;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
@@ -13,7 +14,8 @@ class GeneralController extends Controller
 {
     public function index(){
         $services = Service::where("status",1)->get();
-        return view("welcome",compact("services"));
+        $sliders = Slider::where("status",true)->get();
+        return view("index",compact("services","sliders"));
     }
     
     public function about(){
@@ -29,7 +31,11 @@ class GeneralController extends Controller
     public function our_service($slug){
         $service = Service::where("slug",$slug)->first();
         $services = Service::where("status",1)->get();
-        return view('ourservices',compact("service","services"));
+        return view('ourservice',compact("service","services"));
+    }
+    public function our_services(){
+          $services = Service::where("status",1)->get();
+        return view('ourservices',compact("services"));
     }
 
     public function contact_submit(Request $request){

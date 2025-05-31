@@ -27,11 +27,11 @@ class ServiceController extends Controller
             'title' => 'required|string|max:255',
             'content' => 'required',
             'status' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048'
+            'banner' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048'
         ]);
 
         // Handle image upload
-        $imagePath = $request->file('image')->store('services', 'public');
+        $imagePath = $request->file('banner')->store('services', 'public');
         $img = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 800);
         $img->save();
 
@@ -39,7 +39,7 @@ class ServiceController extends Controller
             'title' => $validated['title'],
             'status' => $validated['status'],
             'content' => $validated['content'],
-            'image' => $imagePath,
+            'banner' => $imagePath,
             'slug' => Str::slug($validated['title'])
         ]);
 
@@ -57,17 +57,17 @@ class ServiceController extends Controller
             'title' => 'required|string|max:255',
             'content' => 'required',
             'status' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
+            'banner' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048'
         ]);
 
         // Handle image upload if exists
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('services', 'public');
+        if ($request->hasFile('banner')) {
+            $imagePath = $request->file('banner')->store('services', 'public');
             $img = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 800);
             $img->save();
 
             $service->update([
-                'image' => $imagePath
+                'banner' => $imagePath
             ]);
         }
 

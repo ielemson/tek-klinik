@@ -1,159 +1,152 @@
 @php
     $setting = \App\Models\Setting::find(1);
 @endphp
-   <!--==============================
-    Mobile Menu
-  ============================== -->
-  <div class="vs-menu-wrapper">
-	<div class="vs-menu-area text-center">
-		<button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
-		<div class="mobile-logo">
-			<a href="{{ route("welcome") }}"><img src="{{ asset("images/settings/$setting->website_logo_dark") }}" alt="tek-klinik" class="logo"></a>
-		</div>
-		<div class="vs-mobile-menu">
-			<ul>
-				<li class="">
-					<a href="{{ url("/") }}">Home</a>
-					
-				</li>
-				<li>
-					<a href="{{ route("about") }}">About Us</a>
-				</li>
-				
-				<li>
-					<a href="{{ route("contact") }}">Contact Us</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-</div>
-<!--==============================
-Sidemenu
-============================== -->
-<div class="sidemenu-wrapper d-none d-lg-block">
-	<div class="sidemenu-content">
-		<button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
-		<div class="widget  ">
-			<div class="vs-widget-about">
-				{{-- <div class="footer-logo">
-					<a href="index.html"><img src="{{ asset("images/settings/$setting->website_logo_white") }}" alt="tek-klinik" class="logo"></a>
-				</div> --}}
-				<p class="footer-text">
-					{{ \Illuminate\Support\Str::limit($setting->about, 200, '...') }}
-				</p>
-				<div class="footer-social">
-					<a href=" {{ $setting->facebook }} "><i class="fab fa-facebook-f"></i></a>
-					<a href=" {{ $setting->twitter }} "><i class="fab fa-twitter"></i></a>
-					<a href=" {{ $setting->instagram }} "><i class="fab fa-instagram"></i></a>
-				</div>
-			</div>
-		</div>
-	
-		<div class="widget  ">
-			<h3 class="widget_title">Our Addres</h3>
-			<div class="footer-map">
-				<iframe title="office location map"
-					src="{{ $setting->google_map }}"
-					width="200" height="180" style="border:0;" allowfullscreen="" loading="lazy"
-					referrerpolicy="no-referrer-when-downgrade"></iframe>
-			</div>
-		</div>
-	</div>
-</div>
-<!--==============================
-	Header Area
-==============================-->
-<header class="vs-header header-layout2">
-	<div class="header-shape"></div>
-	<div class="header-top">
-		<div class="container">
-			<div class="row align-items-center justify-content-between text-center text-lg-start">
-				<div class="col-md-auto text-center text-md-start">
-					<div class="header-links">
-						<ul>
-							<li><i class="far fa-phone-alt"></i><a href="tel:{{ $setting->phone }} "> {{ $setting->phone }} </a></li>
-							<li class="d-none d-xxl-inline-block"><i class="far fa-map-marker-alt"></i>
-								{{ $setting->address }} 
-							</li>
-							<li><i class="far fa-envelope"></i><a
-									href="mailto: {{ $setting->email }} "> {{ $setting->email }} </a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-auto d-none d-md-block">
-					<div class="header-social">
-						<span class="social-title">Follow Us On: </span>
-						<a href="{{ $setting->facebook }}"><i class="fab fa-facebook-f"></i></a>
-						<a href="{{ $setting->twitter }}"><i class="fab fa-twitter"></i></a>
-						<a href="{{ $setting->instagram }}"><i class="fab fa-instagram"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Main Menu Area -->
-	<div class="sticky-wrapper">
-		<div class="sticky-active">
-			<div class="container">
-				<div class="menu-area">
-					<div class="row align-items-center justify-content-between">
-						<div class="col-auto">
-							<div class="logo-style1">
-								<a href="{{ url("/") }}"><img src="{{ asset("images/settings/$setting->website_logo_white") }}" alt="tek-klinik"
-										class="logo"></a>
-							</div>
-						</div>
-						<div class="col-auto">
-							<nav class="main-menu menu-style1 d-none d-lg-block">
-								<ul>
-									<li class="">
-										<a href="{{ url("/") }}"><span class="has-new-lable">Home</a>
-										
-									</li>
-									<li>
-										<a href="{{route("about")}}">About Us</a>
-									</li>
-									<li>
-										<a href="javascript:;">Our Team</a>
-									</li>
-										@if (count($services)> 0)
-										<li class="menu-item-has-children">
-											<a href="javascript:;">Service</a>
-											<ul class="sub-menu">
-											@foreach ($services as $service)
-											<li><a href="{{ route("our.service",$service->slug) }}">{{ $service->title }}</a></li>
-											@endforeach
-											</ul>
-										</li>
-										@endif
-									<li>
-										<a href="{{ route("contact") }}">Contact Us</a>
-									</li>
-									@if(Auth::check())
-				{{-- <p>Welcome, {{ Auth::user()->name }}!</p>
-				<p>Login time: {{ Auth::user()->created_at->format('Y-m-d H:i:s') }}</p> --}}
-				<li>
-					<a href="{{ route("home") }}">Dashboard</a>
-				</li>
-				@else
-				{{-- <p>You are not logged in.</p>
-				<a href="{{ route('login') }}">Login</a> --}}
-				@endif
-								</ul>
-							</nav>
-							<button class="vs-menu-toggle d-inline-block d-lg-none"><i
-									class="fal fa-bars"></i></button>
-						</div>
-						<div class="col-auto d-none d-lg-block">
-							<div class="header-btns">
-								<a href="#" class="vs-btn d-none d-xxl-inline-block">Contact Us<i
-										class="far fa-arrow-right"></i></a>
-								<button class="icon-btn style3 sideMenuToggler"><i class="far fa-bars"></i></button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</header>
+ 
+   <!-- Start Header Top 
+    ============================================= -->
+    <div class="top-bar-area top-bar-style-one bg-dark text-light">
+        <div class="container">
+            <div class="row align-center">
+                <div class="col-xl-6 col-lg-8 offset-xl-3 pl-30 pl-md-15 pl-xs-15">
+                    <ul class="item-flex">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>{{ $setting->address}}
+                        </li>
+                        <li>
+                            <a href="tel:{{ $setting->phone}}"><i class="fas fa-phone-alt"></i>{{ $setting->phone }}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xl-3 col-lg-4 text-end">
+                    <div class="social">
+                        <ul>
+                            <li>
+                                <a href="{{ $setting->facebook}}">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ $setting->twitter}}">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ $setting->instagram}}">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ $setting->linkedin}}">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Header Top -->
+
+<header>
+        <!-- Start Navigation -->
+        <nav class="navbar mobile-sidenav navbar-style-one navbar-sticky navbar-default validnavs white navbar-fixed no-background">
+
+            <div class="container">
+                <div class="row align-center">
+
+                    <!-- Start Header Navigation -->
+                    <div class="col-xl-2 col-lg-3 col-md-2 col-sm-1 col-1">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <a class="navbar-brand" href="{{route("welcome")}}">
+                                <img src="{{asset("images/settings/$setting->website_logo_dark")}}" class="logo" alt="Logo">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- End Header Navigation -->
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="col-xl-6 offset-xl-1 col-lg-6 col-md-4 col-sm-4 col-4">
+                        <div class="collapse navbar-collapse" id="navbar-menu">
+
+                            <img src="{{asset("images/settings/$setting->website_logo_dark")}}" alt="Logo">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                                <i class="fa fa-times"></i>
+                            </button>
+                            
+                            <ul class="nav navbar-nav navbar-center" >
+                                <li class="dropdown megamenu-fw megamenu-style-one">
+                                    <a href="{{route("welcome")}}">Home</a>
+                                   
+                                </li>
+                                <li class="dropdown megamenu-fw megamenu-style-three">
+                                    <a href="{{route("about")}}">About</a>
+                                 
+                                </li>
+                                 @if (count($services)>0)
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >IT Services</a>
+                                    <ul class="dropdown-menu">
+                                        @foreach ($services as $service)
+                                        <li><a href="{{ route("our.service",$service->slug) }}">{{$service->title}}</a></li>
+                                        @endforeach
+                                    </ul>
+                                </li>
+                                @endif
+                                {{-- <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Digital Marketing</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Digital Marketing Services</a></li>
+                                        <li><a href="#">Web Design and Development</a></li>
+                                        <li><a href="#">Digital Packages</a></li>
+                                        <li><a href="#">Free Website Audit</a></li>
+                                        <li><a href="#">Free Digital Consult</a></li>
+                            
+                                    </ul>
+                                </li> --}}
+                                 <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Account</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="https://tek-klinik.com/webmail" target="_blank">Webmail login</a></li>
+                                        @if(Auth::check())
+                                      <li><a href="{{ route("home") }}">{{ Auth::user()->name }}</a></li>
+                                        @else
+                                     <li><a href="#">Admin Login</a></li>
+                                        @endif
+                                        
+                                    </ul>
+                                </li>
+                                <li><a href="{{route("contact")}}">contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /.navbar-collapse -->
+
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-7 col-7">
+                        <div class="attr-right">
+                            <!-- Start Atribute Navigation -->
+                            <div class="attr-nav">
+                                <ul>
+                                    <li class="button">
+                                        <a href="{{route("contact")}}">Book  A Meeting</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- End Atribute Navigation -->
+        
+                        </div>
+                    </div>
+
+                </div>         
+                <!-- Main Nav -->
+
+                <!-- Overlay screen for menu -->
+                <div class="overlay-screen"></div>
+                <!-- End Overlay screen for menu -->
+            </div>   
+        </nav>
+        <!-- End Navigation -->
+    </header>

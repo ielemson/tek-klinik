@@ -213,7 +213,7 @@ Website Settings
 
 											<div class="form-group">
 												<label for="address">{{__('About Us')}}:</label>
-												<textarea name="about" id="about" class="form-control @error('about') form-control-error @enderror" rows="5">{{$setting->about}}</textarea>
+												<textarea name="about" id="about" class="form-control summernote @error('about') form-control-error @enderror" rows="5">{{$setting->about}}</textarea>
 				
 												@error('about')
 													<span class="text-danger">{{ $message }}</span>
@@ -221,7 +221,7 @@ Website Settings
 											</div>
 											<div class="form-group">
 												<label for="address">{{__('Our Vision')}}:</label>
-												<textarea name="our_vision" id="our_vision" class="form-control @error('our_vision') form-control-error @enderror" rows="5">{{$setting->our_vision}}</textarea>
+												<textarea name="our_vision" id="our_vision" class="form-control summernote @error('our_vision') form-control-error @enderror" rows="5">{{$setting->our_vision}}</textarea>
 				
 												@error('our_vision')
 													<span class="text-danger">{{ $message }}</span>
@@ -229,7 +229,7 @@ Website Settings
 											</div>
 											<div class="form-group">
 												<label for="address">{{__('Our Mission')}}:</label>
-												<textarea name="our_mission" id="our_mission" class="form-control @error('our_mission') form-control-error @enderror" rows="5">{{$setting->our_mission}}</textarea>
+												<textarea name="our_mission" id="our_mission" class="form-control summernote @error('our_mission') form-control-error @enderror" rows="5">{{$setting->our_mission}}</textarea>
 				
 												@error('our_mission')
 													<span class="text-danger">{{ $message }}</span>
@@ -347,4 +347,28 @@ Website Settings
         </div>
     </div>
 </section>
+
+@push('scripts')
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+        <script>
+            $('.summernote').summernote({
+                placeholder: 'Please ensure to paste from MS word, Notepad. Avoid pasting directly from other websites.',
+                tabsize: 2,
+                height: 300,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
+        </script>
+@endpush
+
+
 @endsection

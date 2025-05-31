@@ -30,12 +30,16 @@ Route::get('/about', [App\Http\Controllers\GeneralController::class, 'about'])->
 Route::get('/contact', [App\Http\Controllers\GeneralController::class, 'contact'])->name('contact');
 Route::post('/contact/submit', [App\Http\Controllers\GeneralController::class, 'contact_submit'])->name('contact.send');
 Route::get('/our-service/{slug}', [App\Http\Controllers\GeneralController::class, 'our_service'])->name('our.service');
+Route::get('/our-services', [App\Http\Controllers\GeneralController::class, 'our_services'])->name('our.services');
 Route::get('/reload-captcha', [App\Http\Controllers\GeneralController::class, 'refreshCaptcha'])->name("captcha.refresh");
 
 Route::group(['middleware' => 'auth'], function() {
     
     //Services
     Route::resource('services', "ServiceController");
+      //Slidiers 
+    Route::resource('sliders', "SliderController");
+
     // Setting
     Route::prefix('setting')->group(function () {
         Route::get('/website-setting/edit', 'SettingController@edit')->name('website-setting.edit');
@@ -65,8 +69,6 @@ Route::group(['middleware' => 'auth'], function() {
 Route::group(['middleware' => ['auth', 'role_or_permission:admin|create role|create permission']], function() {
 
     Route::resource('role', 'RoleController');
-
-
 });
 
 Auth::routes();

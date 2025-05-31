@@ -1,6 +1,6 @@
 @extends("layouts.frontend")
 @section("title")
-Service :: {{$service->title}}
+Service :: Our Services
 @endsection
 @section("content")
 
@@ -8,38 +8,46 @@ Service :: {{$service->title}}
  <!--==============================
     Breadcumb
 ============================== -->
-@include("partials.page-crumb",["title1"=>$service->title,"title2"=>"Our Service"])
- <!--==============================
-    Service Area
-    ==============================-->
-    <section class=" space-top space-extra-bottom">
-        <div class="container">
-            <div class="row flex-row-reverse">
-                <div class="col-lg-8">
-                    <div class="mb-3 pb-3"><img src="{{ asset('storage/'.$service->image) }}" alt="{{ $service->title }}"></div>
-                    <h2 class="h4">{{ $service->title }}</h2>
-                    <p style="text-align: justify">{!! $service->content  !!}</p>
-           
-                </div>
-                <div class="col-lg-4">
-                    <aside class="service-sidebar">
+@include("partials.page_banner",["title"=>"Our Services", "title1"=>"Services"])
 
-                        <div class="widget widget_categories">
-                            <h3 class="widget_title">All Services</h3>
-                            <ul>
-                                @foreach ($services as $side_service)
-                                   <li>
-                                    <a href="{{ route("our.service",$side_service->slug) }}">{{ $side_service->title }}</a>
-                                </li>   
-                                @endforeach
-                              
-                               
-                            </ul>
+
+  <!-- Start Services 
+    ============================================= -->
+    <div class="services-style-two-area default-padding bottom-less bg-cover bg-gray" style="background-image: url(assets/img/shape/27.png);">
+        <div class="container">
+            <div class="row">
+
+                <!-- Single Item -->
+                @foreach ($services as $service)
+                         <div class="col-xl-4 col-md-6 mb-30">
+                    <div class="services-style-two active wow fadeInUp">
+                        <div class="thumb">
+                            <img src="{{ asset('storage/'.$service->banner) }}" alt="Thumb">
+                            <div class="title">
+                                <a href="{{ route("our.service",$service->slug)}}">
+                                    <div class="icon">
+                                        <img src="{{asset("assets/img/icon/7.png")}}" alt="Image Not Found">
+                                    </div>
+                                    <h4>{{$service->title}}</h4>
+                                </a>
+                            </div>
                         </div>
-                       
-                    </aside>
+                        <div class="info">
+                            <p>
+                                 {!! \Illuminate\Support\Str::limit($service->content, 100, '...') !!}
+                            </p>
+                            <div class="button">
+                                <a href="{{ route("our.service",$service->slug)}}">Read More</a>
+                                <div class="devider"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                @endforeach
+                <!-- End Single Item -->
             </div>
         </div>
-    </section>
-    @endsection
+    </div>
+    <!-- End Services -->
+
+@endsection

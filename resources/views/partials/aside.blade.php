@@ -89,6 +89,13 @@
                     </a>
                 </li> --}}
 
+                 <li class="nav-item">
+                    <a href="{{ route("sliders.index") }}" class="nav-link">
+                    <i class="fas fa-lock nav-icon"></i>
+                    <p>Sliders</p>
+                    </a>
+                </li>
+
                 <li class="nav-item">
                     <a href="{{ route("services.index") }}" class="nav-link">
                     <i class="fas fa-lock nav-icon"></i>

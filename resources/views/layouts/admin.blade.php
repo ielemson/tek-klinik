@@ -10,12 +10,11 @@
     <title>@yield('title')</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -29,7 +28,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{ url("/") }}" class="nav-link">Home</a>
+                    <a href="{{ route("welcome") }}" class="nav-link" target="_blank">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -54,7 +53,9 @@
         </nav>
         <!-- /.navbar -->
 
-      @include("partials.aside")
+        <!-- Main Sidebar Container -->
+        
+        @include("partials.aside")
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper" style="min-height: 399px;">
@@ -94,12 +95,13 @@
                 Anything you want
             </div>
             <!-- Default to the left -->
-            <strong>Copyright © 2024 <a href="#">Admin-Tek-Klinik</a>.</strong> All rights reserved.
+            <strong>Copyright © {{Date("Y")}} <a href="#">Tek-Klinik</a>.</strong> All rights reserved.
         </footer>
         <div id="sidebar-overlay"></div>
     </div>
-    <!-- ./wrapper --> 
-     @yield("scripts")
+    <!-- ./wrapper -->
+        <!-- include libraries(jQuery, bootstrap) -->
+    @stack("scripts")
     </body>
-  
+
 </html>

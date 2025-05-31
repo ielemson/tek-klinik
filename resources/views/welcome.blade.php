@@ -14,67 +14,7 @@ Hero Area
 <!--==============================
 Features Area
 ==============================-->
-{{-- <section class="z-index-common  space-top" data-sec-pos="bottom" data-pos-amount="30px" data-pos-for="#aboutv2">
-	<div class="container  wow fadeInUp" data-wow-delay="0.2s">
-		<div class="row justify-content-center">
-			<div class="col-md-8 col-lg-6 col-xxl-3 text-center text-xxl-start">
-				<div class="title-area">
-					<span class="sec-subtitle"><i class="fas fa-bring-forward"></i>Why Choose Us</span>
-					<h2 class="sec-title3 h1">Why People Choose Our Services</h2>
-				</div>
-			</div>
-			<div class="col-xxl-9">
-				<div class="row vs-carousel feature-slide2 text-center text-xxl-start" data-slide-show="3"
-					data-md-slide-show="2">
-					<div class="col-xl-4">
-						<div class="feature-style2">
-							<div class="feature-icon"><img src="assets/img/icon/fe-2-2.png" alt="Features"></div>
-							<h3 class="feature-title h5"><a class="text-inherit" href="service-details.html">IT
-									Solution</a></h3>
-							<p class="feature-text">Seize magnetic before visa alignment network wireless whereas
-								frictionless</p>
-							<a href="service-details.html" class="link-btn">Read Details<i
-									class="far fa-arrow-right"></i></a>
-						</div>
-					</div>
-					<div class="col-xl-4">
-						<div class="feature-style2">
-							<div class="feature-icon"><img src="assets/img/icon/fe-2-1.png" alt="Features"></div>
-							<h3 class="feature-title h5"><a class="text-inherit" href="service-details.html">IT
-									Consultant</a></h3>
-							<p class="feature-text">Seize magnetic before visa alignment network wireless whereas
-								frictionless</p>
-							<a href="service-details.html" class="link-btn">Read Details<i
-									class="far fa-arrow-right"></i></a>
-						</div>
-					</div>
-					<div class="col-xl-4">
-						<div class="feature-style2">
-							<div class="feature-icon"><img src="assets/img/icon/fe-2-3.png" alt="Features"></div>
-							<h3 class="feature-title h5"><a class="text-inherit" href="service-details.html">Cyber
-									Security</a></h3>
-							<p class="feature-text">Seize magnetic before visa alignment network wireless whereas
-								frictionless</p>
-							<a href="service-details.html" class="link-btn">Read Details<i
-									class="far fa-arrow-right"></i></a>
-						</div>
-					</div>
-					<div class="col-xl-4">
-						<div class="feature-style2">
-							<div class="feature-icon"><img src="assets/img/icon/fe-2-4.png" alt="Features"></div>
-							<h3 class="feature-title h5"><a class="text-inherit" href="service-details.html">App
-									Development</a></h3>
-							<p class="feature-text">Seize magnetic before visa alignment network wireless whereas
-								frictionless</p>
-							<a href="service-details.html" class="link-btn">Read Details<i
-									class="far fa-arrow-right"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section> --}}
+
 <!--==============================
 About Us
 ==============================-->
@@ -106,6 +46,7 @@ Service Area
 ==============================-->
 
 @include("partials.why-choose-us")
+
 @if (count($services)>0)
 <section class=" space-top space-extra-bottom bg-smoke" data-bg-src="{{ asset("assets/img/bg/sr-bg-2-1.jpg") }}">
 	<div class="container  wow fadeInUp" data-wow-delay="0.2s">
