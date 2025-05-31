@@ -10,7 +10,9 @@
                 <div class="col-xl-6 col-lg-8 offset-xl-3 pl-30 pl-md-15 pl-xs-15">
                     <ul class="item-flex">
                         <li>
-                            <i class="fas fa-map-marker-alt"></i>{{ $setting->address}}
+                            <i class="fas fa-map-marker-alt"></i>
+                             {!!  \Illuminate\Support\Str::limit($setting->address, 33, '...')  !!}
+                       
                         </li>
                         <li>
                             <a href="tel:{{ $setting->phone}}"><i class="fas fa-phone-alt"></i>{{ $setting->phone }}</a>
