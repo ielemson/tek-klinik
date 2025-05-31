@@ -114,7 +114,7 @@
                                         @if(Auth::check())
                                       <li><a href="{{ route("home") }}">{{ Auth::user()->name }}</a></li>
                                         @else
-                                     <li><a href="#">Admin Login</a></li>
+                                     <li><a href="{{route("login")}}">Admin Login</a></li>
                                         @endif
                                         
                                     </ul>
