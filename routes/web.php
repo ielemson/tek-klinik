@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +34,16 @@ Route::get('/our-service/{slug}', [App\Http\Controllers\GeneralController::class
 Route::get('/our-services', [App\Http\Controllers\GeneralController::class, 'our_services'])->name('our.services');
 Route::get('/reload-captcha', [App\Http\Controllers\GeneralController::class, 'refreshCaptcha'])->name("captcha.refresh");
 
+
+Route::get('/clear-cache', function () {
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('config:cache');
+    Artisan::call('route:clear');
+    Artisan::call('view:clear');
+
+    return response()->json(['message' => 'Application caches cleared successfully.']);
+});
 Route::group(['middleware' => 'auth'], function() {
     
     //Services
