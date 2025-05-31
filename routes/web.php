@@ -44,6 +44,13 @@ Route::get('/clear-cache', function () {
 
     return response()->json(['message' => 'Application caches cleared successfully.']);
 });
+
+// Storage Link
+
+Route::get('/create-storage-link', function () {
+    Artisan::call('storage:link');
+    return 'Storage link created successfully.';
+});
 Route::group(['middleware' => 'auth'], function() {
     
     //Services
