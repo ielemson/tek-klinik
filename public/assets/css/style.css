@@ -639,10 +639,6 @@ p {
 	padding-top: 120px;
 	padding-bottom: 120px;
 }
-.default-padding_1 {
-	padding-top: 30px;
-	padding-bottom: 30px;
-}
 
 @media only screen and (max-width: 767px) {
 	.default-padding {

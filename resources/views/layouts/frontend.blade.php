@@ -91,11 +91,11 @@
     <script src="{{asset("assets/js/isotope.pkgd.min.js")}}"></script>
     <script src="{{asset("assets/js/imagesloaded.pkgd.min.js")}}"></script>
     <script src="{{asset("assets/js/count-to.js")}}"></script>
-    <script src="{{asset("assets/js/YTPlayer.min.js")}}"></script>
+    <script src="{{asset("assets/js/ytplayer.min.js")}}"></script>
     <script src="{{asset("assets/js/validnavs.js")}}"></script>
     <script src="{{asset("assets/js/gsap.js")}}"></script>
-    <script src="{{asset("assets/js/ScrollTrigger.min.js")}}"></script>
-    <script src="{{asset("assets/js/SplitText.min.js")}}"></script>
+    <script src="{{asset("assets/js/scrolltrigger.min.js")}}"></script>
+    <script src="{{asset("assets/js/splittext.min.js")}}"></script>
     <script src="{{asset("assets/js/main.js")}}"></script>
     @stack("scripts")
 
