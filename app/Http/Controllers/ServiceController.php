@@ -69,6 +69,15 @@ class ServiceController extends Controller
             'banner' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048'
         ]);
 
+        // Check if folder exists
+        $folder = 'services';
+
+        // Ensure the folder exists in the public disk
+        if (!Storage::disk('public')->exists($folder)) {
+            Storage::disk('public')->makeDirectory($folder);
+        }
+
+        
         // Handle image upload if exists
         if ($request->hasFile('banner')) {
             $imagePath = $request->file('banner')->store('services', 'public');
