@@ -27,7 +27,8 @@
     <!-- ========== Favicon Icon ========== -->
     <link rel="shortcut icon" href="{{ asset("images/settings/$setting->website_favicon") }}" type="image/x-icon">
 
-    <!-- ========== Start Stylesheet ========== -->
+    <!-- ========== Start Stylesheet ========== --> 
+    @stack("styles")
     <link href="{{asset("assets/css/bootstrap.min.css")}}" rel="stylesheet">
     <link href="{{asset("assets/css/font-awesome.min.css")}}" rel="stylesheet">
     <link href="{{asset("assets/css/themify-icons.css")}}" rel="stylesheet">
@@ -41,7 +42,7 @@
     <link href="{{asset("assets/css/unit-test.css")}}" rel="stylesheet">
     <link href="{{asset("assets/css/style.css")}}" rel="stylesheet">
     <link href="{{asset("style.css")}}" rel="stylesheet">
-    @stack("styles")
+   
     <!-- ========== End Stylesheet ========== -->
 
 </head>
@@ -54,7 +55,7 @@
 
     <!-- Start Preloader 
     ============================================= -->
-    {{-- <div id="preloader">
+    <div id="preloader">
         <div class="tranzi-loader-inner">
            <div class="tranzi-loader">
               <span class="tranzi-loader-item"></span>
@@ -67,7 +68,7 @@
               <span class="tranzi-loader-item"></span>
            </div>
         </div>
-     </div> --}}
+     </div>
     <!-- preloader end -->
 
      @yield("content")

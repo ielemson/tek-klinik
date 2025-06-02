@@ -28,7 +28,9 @@ Auth::routes([
 
 Route::get('/', [App\Http\Controllers\GeneralController::class, 'index'])->name('welcome');
 Route::get('/about', [App\Http\Controllers\GeneralController::class, 'about'])->name('about');
-Route::get('/contact', [App\Http\Controllers\GeneralController::class, 'contact'])->name('contact');
+Route::get('/contact-us', [App\Http\Controllers\GeneralController::class, 'contact'])->name('contact');
+Route::get('/book-meeting', [App\Http\Controllers\GeneralController::class, 'book_meeting'])->name('book.meeting');
+Route::post('/book-meeting', [App\Http\Controllers\GeneralController::class, 'schedule_meeting'])->name('schedule_meeting');
 Route::post('/contact/submit', [App\Http\Controllers\GeneralController::class, 'contact_submit'])->name('contact.send');
 Route::get('/our-service/{slug}', [App\Http\Controllers\GeneralController::class, 'our_service'])->name('our.service');
 Route::get('/our-services', [App\Http\Controllers\GeneralController::class, 'our_services'])->name('our.services');

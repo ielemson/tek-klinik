@@ -38,14 +38,14 @@
 
             <div class="form-group">
                 <label for="content">Content</label>
-                <textarea name="content" class="form-control" required>{{ $service->content }}</textarea>
+                <textarea name="content" class="form-control summernote" required>{{ $service->content }}</textarea>
             </div>
 
             <div class="form-group">
                 <label for="image">Image</label>
                 <input type="file" name="image" class="form-control-file">
                 <br>
-                <img src="{{ asset('storage/'.$service->image) }}" alt="Image Preview" style="width: 200px;">
+                <img src="{{ asset('storage/'.$service->banner) }}" alt="Image Preview" style="width: 200px;">
             </div>
 
             <button type="submit" class="btn btn-primary">Update</button>
@@ -59,6 +59,28 @@
 @section('title')
     {{__('Page Settings')}}
 @endsection
+@push('scripts')
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+        <script>
+            $('.summernote').summernote({
+                placeholder: 'Please ensure to paste from MS word, Notepad. Avoid pasting directly from other websites.',
+                tabsize: 2,
+                height: 300,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
+        </script>
+@endpush
+
 
 
 

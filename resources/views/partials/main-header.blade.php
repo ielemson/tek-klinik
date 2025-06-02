@@ -98,20 +98,8 @@
                                     </ul>
                                 </li>
                                 @endif
-                                
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >{{__("Digital Marketing")}}</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Digital Marketing Services</a></li>
-                                        <li><a href="#">Web Design and Development</a></li>
-                                        <li><a href="#">Digital Packages</a></li>
-                                        <li><a href="#">Free Website Audit</a></li>
-                                        <li><a href="#">Free Digital Consult</a></li>
-                                    </ul>
-                                </li>
-                              
 
-                                {{-- <li class="dropdown">
+                                <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Account</a>
                                     <ul class="dropdown-menu">
                                         <li><a href="https://tek-klinik.com/webmail" target="_blank">Web Mail</a></li>
@@ -122,7 +110,7 @@
                                      <li><a href="{{route("login")}}">Account Login</a></li>
                                         @endif
                                     </ul>
-                                </li> --}}
+                                </li>
                                 <li><a href="{{route("contact")}}">contact</a></li>
                             </ul>
                         </div>
@@ -135,7 +123,7 @@
                             <div class="attr-nav">
                                 <ul>
                                     <li class="button">
-                                        <a href="{{route("book.meeting")}}">Book Meeting</a>
+                                        <a href="{{route("contact")}}">Book Meeting</a>
                                     </li>
                                 </ul>
                             </div>

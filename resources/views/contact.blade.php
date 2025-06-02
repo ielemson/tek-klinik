@@ -29,7 +29,7 @@
                     <div class="contact-style-one-info">
                         <h2 class="split-text">We’d Love to Hear From You</h2>
                         <p class="wow fadeInUp" data-wow-delay="100ms">
-                           Whether you have a question about our services, need assistance, or want to partner with us, our team is ready to help. Reach out through any of the contact options below, and we’ll respond promptly.
+                          Interested in how our IT consulting services can improve your operations and drive efficiency? Fill out the form, and one of our experts will get back to you shortly.
                         </p>
                         <ul>
                             <li class="wow fadeInUp">
@@ -67,14 +67,14 @@
                 
                 <div class="contact-stye-one col-lg-7 pl-60 pl-md-15 pl-xs-15">
                     <div class="contact-form-style-one">
-                        <h5 class="sub-title">Have Questions?</h5>
-                        <h2 class="title">Send us a Massage</h2>
+                        <h5 class="sub-title">Get in Touch</h5>
+                        {{-- <h2 class="title"></h2> --}}
                         <form  method="POST" class="contact-form contact-form" id="contactForm" data-parsley-validate>
 								@csrf
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <input class="form-control" id="name" name="name" placeholder="Name" type="text" required data-parsley-trigger="change">
+                                        <input class="form-control" id="name" name="name" placeholder="Full Name*" type="text" required data-parsley-trigger="change">
                                         <span class="alert-error"></span>
                                     </div>
                                 </div>
@@ -89,14 +89,26 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <input class="form-control" id="phone" name="phone" placeholder="Phone" type="text" required data-parsley-trigger="change">
+                                        <input class="form-control" id="phone" name="phone" placeholder="Phone*" type="text" required data-parsley-trigger="change">
                                         <span class="alert-error"></span>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required data-parsley-trigger="change">
+                                    <input type="text" class="form-control" name="organization" id="organization" placeholder="Your organization*" required data-parsley-trigger="change">
                                         <span class="alert-error"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 mb-3">
+                                    <div class="form-group">
+                                    {{-- <input type="text" class="form-control" name="organization" id="organization" placeholder="Company Name" required data-parsley-trigger="change"> --}}
+                                    <select name="services" id="" class="form-control">
+                                        <option value="">What services can we help you with? (Check all that apply)* </option>
+                                        @foreach ($services as $service)
+                                            <option value="{{$service->title}}">{{$service->title}}</option>
+                                        @endforeach
+                                    </select>
+                                    <span class="alert-error"></span>
                                     </div>
                                 </div>
                                 {{-- captcha Starts --}}
@@ -107,7 +119,7 @@
                                        
                                     </div>
                                 </div>
-                                  <div class="col-lg-6">
+                                  <div class="col-lg-6 mb-4">
                                     <div class="form-group">
                                            <input type="text" class="form-control" id="captcha" name="captcha" placeholder="Enter captcha" required data-parsley-required-message="Captcha is required">
                                         <span class="alert-error"></span>
@@ -115,30 +127,21 @@
                                 </div>
                                 {{-- captcha Ends --}}
                             </div>
-                            <div class="row">
+                            <div class="row mt-4">
                                 <div class="col-lg-12">
-                                    <div class="form-group comments">
-                                        <textarea class="form-control" id="comments" name="message_body" placeholder="Message" required data-parsley-trigger="change"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <button type="submit" name="submit" id="submit">
-                                        <i class="fa fa-paper-plane"></i> Get in Touch
+                                    <button type="submit" name="submit" id="contactButton">
+                                        <i class="fa fa-paper-plane"></i> Submit
                                     </button>
+                                      &nbsp;
+                                        <div class="spinner-border text-info text-sm" role="status">
+                                            <span class="sr-only">Loading...</span>
+									</div>
                                 </div>
                             </div>
-                            <!-- Alert Message -->
-                            {{-- <div class="col-lg-12 alert-notification">
-                                <div id="message" class="alert-msg"></div>
-                            </div> --}}
+                          
                         </form>
                     </div>
                 </div>
-
-                
-
             </div>
         </div>
     </div>
@@ -194,6 +197,7 @@
 
                 if ($(this).parsley().isValid()) {
                     $('.spinner-border').show(); // Show spinner
+                    document.getElementById("contactButton").disabled = true;
 
                     $.ajax({
                         url: '{{ route('contact.send') }}',
@@ -204,6 +208,7 @@
                             $('#contactForm')[0].reset();
                             $('#btn-refresh').click(); // Refresh captcha image
                             $('.spinner-border').hide(); // Hide spinner
+                            document.getElementById("contactButton").disabled = false;
                         },
                         error: function(response) {
                             var errors = response.responseJSON.errors;
@@ -213,6 +218,7 @@
                             });
                             swal("Error!", errorMessage, "error");
                             $('.spinner-border').hide(); // Hide spinner
+                             document.getElementById("contactButton").disabled = false;
                         }
                     });
                 }

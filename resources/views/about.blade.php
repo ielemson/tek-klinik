@@ -12,18 +12,15 @@
     <!-- Start About
     ============================================= -->
     <div class="about-style-one-area default-padding">
-        <div class="shape-animated-left">
-            <img src="assets/img/shape/3.png" alt="Image Not Found">
-            <img src="assets/img/shape/4.png" alt="Image Not Found">
-        </div>
+     
         <div class="container">
             <div class="row align-center">
                 <div class="about-style-one col-xl-5 col-lg-6">
                     <div class="about-thumb">
                         <img class="wow fadeInRight" src="{{ asset('assets/img/about/1.jpg') }}" alt="Image Not Found">
-                        <div class="thumb-shape-bottom wow fadeInDown" data-wow-delay="300ms">
+                        {{-- <div class="thumb-shape-bottom wow fadeInDown" data-wow-delay="300ms">
                             <img src="{{ asset('assets/img/illustration/4.png') }}" alt="Image Not Found">
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="about-style-one col-xl-6 col-lg-5  offset-xl-1 offset-lg-1">
@@ -46,7 +43,7 @@
                                 <h2 class="">Proactive and Client-Centric Technical Support</h2>
                             </div>
                             <div class="col-lg-6 offset-lg-2">
-                                <p style="text-align: justify">
+                                <p style="text-align: justify" class="mt-4">
                                     Our core mission is to deliver exceptional technical support that goes beyond simply
                                     resolving immediate issues. We focus on understanding your unique IT environment and
                                     challenges to provide proactive solutions that minimize downtime and maximize

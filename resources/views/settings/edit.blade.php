@@ -258,7 +258,15 @@ Website Settings
 													
 											<div class="form-group">
 												<label for="email">{{__('Contact Email')}}:</label>
-												<input type="text" name="email" id="email" class="form-control @error('email') form-control-error @enderror" value="{{$setting->email}}">
+												<input type="email" name="email" id="email" class="form-control @error('email') form-control-error @enderror" value="{{$setting->email}}">
+				
+												@error('email')
+													<span class="text-danger">{{ $message }}</span>
+												@enderror
+											</div>
+											<div class="form-group">
+												<label for="service_type_name">{{__('Service Type Name')}}:</label>
+												<input type="text" name="service_type_name" id="service_type_name" class="form-control @error('service_type_name') form-control-error @enderror" value="{{$setting->service_type_name}}">
 				
 												@error('email')
 													<span class="text-danger">{{ $message }}</span>
