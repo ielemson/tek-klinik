@@ -145,7 +145,7 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6 footer-item pr-50 pr-xs-15">
                         <div class="f-item about">
-                            <img class="logo" src="assets/img/logo-light-solid.png" alt="Logo">
+                            <img class="logo" src="{{asset("images/settings/$setting->website_logo_white")}}" alt="Logo">
                             <p>
                               {!!  \Illuminate\Support\Str::limit($setting->about, 300, '...')  !!}
                             </p>
