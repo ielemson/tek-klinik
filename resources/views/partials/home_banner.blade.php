@@ -7,7 +7,7 @@
                 <!-- Single Item -->
                @foreach ($sliders as $slider)
                     <div class="swiper-slide banner-style-one">
-                    <div class="banner-thumb bg-cover shadow theme" style="background: url({{ asset('storage/'.$slider->image) }});"></div>
+                    <div class="banner-thumb bg-cover shadow theme" style="background: url({{ asset($slider->image) }});"></div>
                     <div class="container">
                         <div class="row align-center">
                             <div class="col-xl-8 offset-xl-4">

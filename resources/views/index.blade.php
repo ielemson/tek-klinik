@@ -53,7 +53,7 @@
                      <div class="col-xl-4 col-md-6 mb-30">
                     <div class="services-style-two active wow fadeInUp">
                         <div class="thumb">
-                            <img src="{{ asset('storage/'.$service->banner) }}">
+                            <img src="{{ asset($service->banner) }}">
                             <div class="title">
                                 <a href="{{ route("our.service",$service->slug)}}">
                                     <div class="icon">

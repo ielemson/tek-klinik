@@ -31,18 +31,33 @@ class ServiceController extends Controller
         ]);
 
         // Check if folder exists
-        $folder = 'services';
+        // $folder = 'services';
 
         // Ensure the folder exists in the public disk
-        if (!Storage::disk('public')->exists($folder)) {
-            Storage::disk('public')->makeDirectory($folder);
-        }
+        // if (!Storage::disk('public')->exists($folder)) {
+        //     Storage::disk('public')->makeDirectory($folder);
+        // }
 
 
         // Handle image upload
-        $imagePath = $request->file('banner')->store('services', 'public');
-        $img = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 800);
-        $img->save();
+        // $imagePath = $request->file('banner')->store('services', 'public');
+        // $img = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 800);
+        // $img->save();
+
+        if ($request->hasFile('banner')) {
+        $image = $request->file('banner');
+        $imageName = time() . '_' . $image->getClientOriginalName();
+        $destinationPath = public_path('assets/img/services'); // points to /public/sliders
+
+        // Ensure the folder exists
+        if (!file_exists($destinationPath)) {
+        mkdir($destinationPath, 0777, true);
+        }
+
+        $image->move($destinationPath, $imageName);
+
+        $imagePath =  'assets/img/services/' . $imageName;
+        }
 
         Service::create([
             'title' => $validated['title'],
@@ -62,6 +77,7 @@ class ServiceController extends Controller
 
     public function update(Request $request, Service $service)
     {
+        // dd($request->all());
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required',
@@ -69,31 +85,48 @@ class ServiceController extends Controller
             'banner' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048'
         ]);
 
-        // Check if folder exists
-        $folder = 'services';
+        // // Check if folder exists
+        // $folder = 'services';
 
-        // Ensure the folder exists in the public disk
-        if (!Storage::disk('public')->exists($folder)) {
-            Storage::disk('public')->makeDirectory($folder);
+        // // Ensure the folder exists in the public disk
+        // if (!Storage::disk('public')->exists($folder)) {
+        //     Storage::disk('public')->makeDirectory($folder);
+        // }
+
+        // // Handle image upload if exists
+        // if ($request->hasFile('banner')) {
+        //     $imagePath = $request->file('banner')->store('services', 'public');
+        //     $img = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 800);
+        //     $img->save();
+
+        //     $service->update([
+        //         'banner' => $imagePath
+        //     ]);
+        // }
+
+        if ($request->hasFile('banner')) {
+            // dd($request);
+        $image = $request->file('banner');
+        $imageName = time() . '_' . $image->getClientOriginalName();
+        $destinationPath = public_path('assets/img/services'); // points to /public/sliders
+
+        // Ensure the folder exists
+        if (!file_exists($destinationPath)) {
+        mkdir($destinationPath, 0777, true);
         }
 
-        
-        // Handle image upload if exists
-        if ($request->hasFile('banner')) {
-            $imagePath = $request->file('banner')->store('services', 'public');
-            $img = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 800);
-            $img->save();
-
-            $service->update([
-                'banner' => $imagePath
+        $image->move($destinationPath, $imageName);
+        $imagePath = 'assets/img/services/' . $imageName;
+        $service->update([
+        'banner' => $imagePath
             ]);
         }
 
         $service->update([
-            'title' => $validated['title'],
-            'status' => $validated['status'],
-            'content' => $validated['content'],
-            'slug' => Str::slug($validated['title'])
+        'title' => $validated['title'],
+        'status' => $validated['status'],
+        'content' => $validated['content'],
+        'slug' => Str::slug($validated['title'])
         ]);
 
         return redirect()->route('services.index')->with('success', 'Service updated successfully');

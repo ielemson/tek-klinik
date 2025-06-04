@@ -34,7 +34,7 @@
         <tbody>
             @forelse($sliders as $slider)
                 <tr>
-                    <td><img src="{{ asset('storage/' . $slider->image) }}" width="100" /></td>
+                    <td><img src="{{ asset($slider->image) }}" width="100" /></td>
                     <td>{{ $slider->first_header }}</td>
                     <td>{{ $slider->second_header }}</td>
                     <td>{{ $slider->status ? 'Active' : 'Inactive' }}</td>

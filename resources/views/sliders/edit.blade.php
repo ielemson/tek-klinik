@@ -33,7 +33,7 @@
 
         <div class="form-group">
             <label>Current Image</label><br>
-            <img src="{{ asset('storage/' . $slider->image) }}" width="150" class="mb-2">
+            <img src="{{ asset($slider->image) }}" width="150" class="mb-2">
         </div>
 
         <div class="form-group">

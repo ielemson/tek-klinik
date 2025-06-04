@@ -28,7 +28,7 @@ Service :: {{$service->title}}
                     
                     <div class="col-xl-8 col-lg-7 order-lg-last pl-50 pl-md-15 pl-xs-15">
                         <div class="thumb">
-                            <img src="{{ asset('storage/'.$service->banner) }}" alt="Thumb">
+                            <img src="{{ asset($service->banner) }}" alt="Thumb">
                         </div>
                         <h2>{{$service->title}}</h2>
                         <p>

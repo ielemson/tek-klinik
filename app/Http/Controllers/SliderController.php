@@ -29,9 +29,25 @@ class SliderController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
 
-        $path = $request->file('image')->store('sliders', 'public');
+        // $path = $request->file('image')->store('sliders', 'public');
 
-        $validated['image'] = $path;
+        // $validated['image'] = $path;
+
+        if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $imageName = time() . '_' . $image->getClientOriginalName();
+        $destinationPath = public_path('assets/img/sliders'); // points to /public/sliders
+
+        // Ensure the folder exists
+        if (!file_exists($destinationPath)) {
+        mkdir($destinationPath, 0777, true);
+        }
+
+        $image->move($destinationPath, $imageName);
+
+        $validated['image'] = 'assets/img/sliders/' . $imageName;
+        }
+
 
         Slider::create($validated);
 
@@ -52,11 +68,27 @@ class SliderController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
 
+        // if ($request->hasFile('image')) {
+        //     Storage::disk('public')->delete($slider->image);
+        //     $validated['image'] = $request->file('image')->store('sliders', 'public');
+        // }
+
         if ($request->hasFile('image')) {
-            Storage::disk('public')->delete($slider->image);
-            $validated['image'] = $request->file('image')->store('sliders', 'public');
+        $image = $request->file('image');
+        $imageName = time() . '_' . $image->getClientOriginalName();
+        $destinationPath = public_path('assets/img/sliders'); // points to /public/sliders
+
+        // Ensure the folder exists
+        if (!file_exists($destinationPath)) {
+        mkdir($destinationPath, 0777, true);
         }
 
+        $image->move($destinationPath, $imageName);
+
+        $validated['image'] = 'assets/img/sliders/' . $imageName;
+            }
+
+            
         $slider->update($validated);
 
         return redirect()->route('sliders.index')->with('success', 'Slider updated successfully.');

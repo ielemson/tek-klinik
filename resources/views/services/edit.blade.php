@@ -43,9 +43,9 @@
 
             <div class="form-group">
                 <label for="image">Image</label>
-                <input type="file" name="image" class="form-control-file">
+                <input type="file" name="banner" class="form-control-file">
                 <br>
-                <img src="{{ asset('storage/'.$service->banner) }}" alt="Image Preview" style="width: 200px;">
+                <img src="{{ asset($service->banner) }}" alt="Image Preview" style="width: 200px;">
             </div>
 
             <button type="submit" class="btn btn-primary">Update</button>
