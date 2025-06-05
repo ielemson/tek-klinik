@@ -55,7 +55,7 @@
 
     <!-- Start Preloader 
     ============================================= -->
-    <div id="preloader">
+    {{-- <div id="preloader">
         <div class="tranzi-loader-inner">
            <div class="tranzi-loader">
               <span class="tranzi-loader-item"></span>
@@ -68,7 +68,7 @@
               <span class="tranzi-loader-item"></span>
            </div>
         </div>
-     </div>
+     </div> --}}
     <!-- preloader end -->
 
      @yield("content")
