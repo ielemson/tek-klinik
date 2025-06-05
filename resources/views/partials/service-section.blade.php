@@ -1,40 +1,38 @@
-<section class=" space-top space-extra-bottom">
-	<div class="container">
-		<div class="row flex-row-reverse">
-			<div class="col-lg-6 mb-30  wow fadeInUp" data-wow-delay="0.2s">
-				<div class="img-box4">
-					<div class="img-1"><img src="assets/img/about/ab-3-1.jpg" alt="about image"></div>
-					<div class="img-2"><img src="assets/img/about/ab-3-2.jpg" alt="about image"></div>
-				</div>
-			</div>
-			<div class="col-lg-6 mb-30 pt-10 pt-lg-0 text-center text-md-start">
-				<span class="sec-subtitle"><i class="fas fa-bring-forward"></i>Get best It solution 2022</span>
-				<h2 class="sec-title3 h1 mb-3 pb-3">Ready To Get Our Best Quality Services</h2>
-				<div class="media-order">
-					<div class="media-order__number">01</div>
-					<div class="media-body">
-						<h3 class="media-order__title h6">We Deliver Perfect Solution</h3>
-						<p class="media-order__text">Rapidiously leverage existing quality services with wireless
-							bandwidth seize functionalized methods...</p>
-					</div>
-				</div>
-				<div class="media-order">
-					<div class="media-order__number">02</div>
-					<div class="media-body">
-						<h3 class="media-order__title h6">Specialised Support Service</h3>
-						<p class="media-order__text">Rapidiously leverage existing quality services with wireless
-							bandwidth seize functionalized methods...</p>
-					</div>
-				</div>
-				<div class="media-order">
-					<div class="media-order__number">03</div>
-					<div class="media-body">
-						<h3 class="media-order__title h6">We Deliver Perfect Solution</h3>
-						<p class="media-order__text">Rapidiously leverage existing quality services with wireless
-							bandwidth seize functionalized methods...</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+<!-- Start Services 
+    ============================================= -->
+    <div class="services-style-two-area default-padding bottom-less bg-cover bg-gray" style="background-image: url(assets/img/shape/27.png);">
+        <div class="container">
+            <div class="row">
+				 @foreach ($services as $service)
+                <!-- Single Item -->
+                <div class="col-xl-4 col-md-6 mb-30">
+                    <div class="services-style-two active wow fadeInUp">
+                        <div class="thumb">
+                            <img src="{{ asset($service->banner) }}" alt="Thumb">
+                            <div class="title">
+                                <a href="{{ route("our.service",$service->slug)}}">
+                                    <div class="icon">
+                                        <img src="{{asset("assets/img/icon/7.png")}}" alt="{{ $service->title }}">
+                                    </div>
+                                    <h4>{{ $service->title }}</h4>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="info">
+							
+                             {!! \Illuminate\Support\Str::limit($service->content, 100, '...') !!}
+
+                            <div class="button">
+                                <a href="{{ route("our.service",$service->slug)}}">Read More</a>
+                                <div class="devider"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Single Item -->
+				@endforeach
+
+            </div>
+        </div>
+    </div>
+    <!-- End Services -->
