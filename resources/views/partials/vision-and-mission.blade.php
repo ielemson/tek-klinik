@@ -1,4 +1,4 @@
-<div class="mission-vision-style-one-area bg-cover bg-gray overflow-hidden default-padding" style="background-image: url(assets/img/shape/22.png);">
+<div class="mission-vision-style-one-area bg-cover overflow-hidden default-padding" style="background-image: url(assets/img/shape/22.png);">
 
         <div class="shape-top-left">
             <img src="{{asset("assets/img/shape/47.png")}}" alt="Shape">

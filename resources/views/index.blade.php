@@ -31,7 +31,7 @@
   @include("partials.why_choose_us")
     <!-- End Why Choose Us -->
 
-@if (count($services)>0)
+    @if (count($services)>0)
     @include("partials.service-section")
     @endif
 

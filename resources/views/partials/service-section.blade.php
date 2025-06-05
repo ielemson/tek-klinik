@@ -1,6 +1,6 @@
 <!-- Start Services 
     ============================================= -->
-    <div class="services-style-two-area default-padding bottom-less bg-cover bg-gray" style="background-image: url(assets/img/shape/27.png);">
+    <div class="services-style-two-area default-padding_2 bottom-less bg-cover bg-gray" style="background-image: url({{asset("assets/img/shape/27.png")}});">
         <div class="container">
             <div class="row">
 				 @foreach ($services as $service)
@@ -19,9 +19,7 @@
                             </div>
                         </div>
                         <div class="info">
-							
                              {!! \Illuminate\Support\Str::limit($service->content, 100, '...') !!}
-
                             <div class="button">
                                 <a href="{{ route("our.service",$service->slug)}}">Read More</a>
                                 <div class="devider"></div>
