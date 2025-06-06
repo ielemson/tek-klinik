@@ -22,7 +22,7 @@
                     <div class="card h-100">
                         <img src="{{ asset($service->banner) }}" class="card-img-top" alt="{{ $service->header }}">
                         <div class="card-body">
-                            <h5 class="card-title">{{ $service->title }}</h5>
+                            <h5 class="card-title">{{ $service->title }}</h5> <br>
                             <p> {{\Illuminate\Support\Str::limit($service->excerpt, 100, '...') }}</p>
                             <br>
                             {{-- <a href="{{ route('services.show', $service->id) }}" class="btn btn-primary">V</a> --}}
