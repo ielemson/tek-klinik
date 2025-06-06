@@ -23,6 +23,7 @@
                         <img src="{{ asset($service->banner) }}" class="card-img-top" alt="{{ $service->header }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ $service->title }}</h5>
+                            <p> {{ $service->excerpt }}</p>
                             <br>
                             {{-- <a href="{{ route('services.show', $service->id) }}" class="btn btn-primary">V</a> --}}
                             <div class="btn-group" role="group" aria-label="Basic example">

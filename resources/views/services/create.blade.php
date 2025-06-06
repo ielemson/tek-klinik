@@ -30,6 +30,11 @@
         </div>
 
         <div class="form-group">
+            <label for="content">Excerpt</label>
+            <textarea name="excerpt" class="form-control" required></textarea>
+        </div>
+
+        <div class="form-group">
             <label for="content">Content</label>
             <textarea name="content" class="form-control summernote" required></textarea>
         </div>

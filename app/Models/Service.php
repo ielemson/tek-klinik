@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
     use HasFactory;
-    protected $fillable = ['banner', 'title', 'content', 'slug','type','status'];
+    protected $fillable = ['banner', 'title', 'content', 'slug','type','status','excerpt'];
 }

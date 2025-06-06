@@ -27,6 +27,7 @@ class ServiceController extends Controller
             'title' => 'required|string|max:255',
             'content' => 'required',
             'status' => 'required',
+            'excerpt' => 'required',
             'banner' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048'
         ]);
 
@@ -63,6 +64,7 @@ class ServiceController extends Controller
             'title' => $validated['title'],
             'status' => $validated['status'],
             'content' => $validated['content'],
+            'excerpt' => $validated['excerpt'],
             'banner' => $imagePath,
             'slug' => Str::slug($validated['title'])
         ]);
@@ -82,6 +84,7 @@ class ServiceController extends Controller
             'title' => 'required|string|max:255',
             'content' => 'required',
             'status' => 'required',
+            'excerpt' => 'required',
             'banner' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048'
         ]);
 
@@ -126,6 +129,7 @@ class ServiceController extends Controller
         'title' => $validated['title'],
         'status' => $validated['status'],
         'content' => $validated['content'],
+        'excerpt' => $validated['excerpt'],
         'slug' => Str::slug($validated['title'])
         ]);
 

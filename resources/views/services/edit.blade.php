@@ -37,6 +37,11 @@
             </div>
 
             <div class="form-group">
+                <label for="content">Excerpts</label>
+                <textarea name="excerpt" class="form-control" required>{{ $service->excerpt }}</textarea>
+            </div>
+            
+            <div class="form-group">
                 <label for="content">Content</label>
                 <textarea name="content" class="form-control summernote" required>{{ $service->content }}</textarea>
             </div>

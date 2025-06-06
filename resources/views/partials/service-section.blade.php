@@ -19,7 +19,7 @@
                             </div>
                         </div>
                         <div class="info">
-                             {!! \Illuminate\Support\Str::limit($service->content, 100, '...') !!}
+                             {!! \Illuminate\Support\Str::limit($service->excerpt, 100, '...') !!}
                             <div class="button">
                                 <a href="{{ route("our.service",$service->slug)}}">Read More</a>
                                 <div class="devider"></div>

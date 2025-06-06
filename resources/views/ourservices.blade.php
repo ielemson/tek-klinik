@@ -34,7 +34,7 @@ Service :: Our Services
                         </div>
                         <div class="info">
                             <p>
-                                 {!! \Illuminate\Support\Str::limit($service->content, 100, '...') !!}
+                                 {!! \Illuminate\Support\Str::limit($service->excerpt, 100, '...') !!}
                             </p>
                             <div class="button">
                                 <a href="{{ route("our.service",$service->slug)}}">Read More</a>
