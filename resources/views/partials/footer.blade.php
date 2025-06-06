@@ -188,6 +188,9 @@
                                 <li>
                                     <a href="{{route("contact")}}">Contact</a>
                                 </li>
+                                <li>
+                                    <a href="{{route("book.meeting")}}">Book A Meeting</a>
+                                </li>
                             </ul>
                         </div>
                     </div>

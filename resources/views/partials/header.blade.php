@@ -135,7 +135,7 @@
                             <div class="attr-nav">
                                 <ul>
                                     <li class="button">
-                                        <a href="{{route("book.meeting")}}">Book Meeting</a>
+                                        <a href="{{route("book.meeting")}}">Book A Meeting</a>
                                     </li>
                                 </ul>
                             </div>

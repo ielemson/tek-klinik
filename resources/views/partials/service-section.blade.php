@@ -1,6 +1,6 @@
 <!-- Start Services 
     ============================================= -->
-    <div class="services-style-two-area default-padding_2 bottom-less bg-cover bg-gray" style="background-image: url({{asset("assets/img/shape/27.png")}});">
+    <div class="services-style-two-area default-padding bottom-less bg-cover bg-gray" style="background-image: url({{asset("assets/img/shape/27.png")}});">
         <div class="container">
             <div class="row">
 				 @foreach ($services as $service)
