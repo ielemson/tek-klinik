@@ -222,7 +222,7 @@
                             });
                             swal("Error!", errorMessage, "error");
                             $('.spinner-border').hide(); // Hide spinner
-                             document.getElementById("bookButton").disabled = true;
+                             document.getElementById("bookButton").disabled = false;
                         }
                     });
                 }
