@@ -1,11 +1,14 @@
+@php
+    $setting = \App\Models\Setting::find(1);
+@endphp
+
 @extends("layouts.frontend")
+
 @section("title")
 	Home
 @endsection
 @section("content")
-@php
-    $setting = \App\Models\Setting::find(1);
-@endphp
+
 @include("partials.header")
 <!--==============================
 Hero Area
@@ -18,10 +21,12 @@ Features Area
 <!--==============================
 About Us
 ==============================-->
+
 @include("partials.about-us-section")
 <!--==============================
 About Features
 ==============================-->
+
 {{-- @include("partials.service-section") --}}
   <!--==============================
     CTA Area
@@ -87,4 +92,5 @@ Service Area
 @endif
 
 @include("partials.mission-vision-section")
+
 @endsection

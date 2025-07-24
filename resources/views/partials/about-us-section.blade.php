@@ -12,7 +12,7 @@
                                     </div>
                                     <div class="fun-fact">
                                         
-                                        <span class="medium">Certified Company</span>
+                                        <span class="medium">Certified IT Solution Provider</span>
                                     </div>
                                 </li>
                                
@@ -58,3 +58,5 @@
             </div>
         </div>
     </div>
+
+   @include("partials.cloud_solutions")

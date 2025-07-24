@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 @section('title')
-    Contact Us
+Book a meeting with us today
 @endsection
 @section('content')
     @php

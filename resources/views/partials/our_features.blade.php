@@ -16,9 +16,9 @@
                                     <img src="{{asset("assets/img/icon/17.png")}}" alt="Image Not Found">
                                 </div>
                                 <h4>
-                                    24/7 Help Desk <br> Round-the-Clock IT Support </h4>
+                                    24/7 Help Desk <br> Round the Clock IT Support </h4>
                                 <p>
-                                    Reliable technical assistance anytime you need it—minimizing downtime and keeping your business moving.
+                                    Reliable technical assistance anytime you need it minimizing downtime and keeping your business moving.
                                 </p>
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                                 </div>
                                 <h4>Tech Consulting <br> Strategic IT Guidance</h4>
                                 <p>
-                            Expert advice tailored to your business needs—helping you choose the right technologies to drive growth.
+                            Expert advice tailored to your business needs helping you choose the right technologies to drive growth.
                                 </p>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                                 <div class="icon">
                                     <img src="{{asset("assets/img/icon/20.png")}}" alt="Image Not Found">
                                 </div>
-                                <h4>IT Infrastructure Management <br> Optimized Systems, Seamless Operations</h4>
+                                <h4>IT Infrastructure Management <br> Optimized Systems</h4>
                                 <p>
                                    Comprehensive management of your hardware and software to boost performance and prevent disruptions.
                                 </p>

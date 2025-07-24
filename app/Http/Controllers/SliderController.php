@@ -20,6 +20,10 @@ class SliderController extends Controller
         return view('sliders.create');
     }
 
+    public function show(){
+        return view("sliders.create");
+    }
+
     public function store(Request $request)
     {
         $validated = $request->validate([

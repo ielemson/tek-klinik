@@ -13,13 +13,48 @@ class ServiceController extends Controller
     public function index()
     {
         $services = Service::all();
+        // return view('services.index', compact('services'));
+        //   $services = Service::with('parent')->latest()->get();
+        // return view('services.index', compact('services'));
+        $services = Service::with('parent')->orderBy('created_at', 'desc')->get();
         return view('services.index', compact('services'));
     }
 
-    public function create()
+   
+     public function create()
     {
-        return view('services.create');
+        // Only top-level services as potential parents
+        $parents = Service::whereNull('parent_id')->pluck('title', 'id');
+        return view('services.create', compact('parents'));
     }
+
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         'title' => 'required|string|max:255',
+    //         'status' => 'required|in:active,inactive',
+    //         'excerpt' => 'nullable|string|max:500',
+    //         'content' => 'nullable|string',
+    //          'banner' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+    //         'parent_id' => 'nullable|exists:services,id',
+    //     ]);
+
+    //     if ($request->hasFile('banner')) {
+    //         $banner = $request->file('banner')->store('banners', 'public');
+    //     }
+
+    //     Service::create([
+    //         'title'     => $request->title,
+    //         'status'    => $request->status,
+    //         'excerpt'   => $request->excerpt,
+    //         'content'   => $request->content,
+    //         'banner'    => $banner,
+    //         'parent_id' => $request->parent_id,
+    //         'slug'      => Str::slug($request->title),
+    //     ]);
+
+    //     return redirect()->route('services.index')->with('success', 'Service created successfully.');
+    // }
 
     public function store(Request $request)
     {
@@ -32,12 +67,12 @@ class ServiceController extends Controller
         ]);
 
         // Check if folder exists
-        // $folder = 'services';
+        $folder = 'services';
 
         // Ensure the folder exists in the public disk
-        // if (!Storage::disk('public')->exists($folder)) {
-        //     Storage::disk('public')->makeDirectory($folder);
-        // }
+        if (!Storage::disk('public')->exists($folder)) {
+            Storage::disk('public')->makeDirectory($folder);
+        }
 
 
         // Handle image upload
@@ -74,10 +109,12 @@ class ServiceController extends Controller
 
     public function edit(Service $service)
     {
-        return view('services.edit', compact('service'));
+        // Exclude current service to prevent selecting self as parent
+        $parents = Service::whereNull('parent_id')->where('id', '!=', $service->id)->pluck('title', 'id');
+        return view('services.edit', compact('service', 'parents'));
     }
 
-    public function update(Request $request, Service $service)
+       public function update(Request $request, Service $service)
     {
         // dd($request->all());
         $validated = $request->validate([
@@ -88,24 +125,24 @@ class ServiceController extends Controller
             'banner' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048'
         ]);
 
-        // // Check if folder exists
-        // $folder = 'services';
+        // Check if folder exists
+        $folder = 'services';
 
-        // // Ensure the folder exists in the public disk
-        // if (!Storage::disk('public')->exists($folder)) {
-        //     Storage::disk('public')->makeDirectory($folder);
-        // }
+        // Ensure the folder exists in the public disk
+        if (!Storage::disk('public')->exists($folder)) {
+            Storage::disk('public')->makeDirectory($folder);
+        }
 
-        // // Handle image upload if exists
-        // if ($request->hasFile('banner')) {
-        //     $imagePath = $request->file('banner')->store('services', 'public');
-        //     $img = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 800);
-        //     $img->save();
+        // Handle image upload if exists
+        if ($request->hasFile('banner')) {
+            $imagePath = $request->file('banner')->store('services', 'public');
+            $img = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 800);
+            $img->save();
 
-        //     $service->update([
-        //         'banner' => $imagePath
-        //     ]);
-        // }
+            $service->update([
+                'banner' => $imagePath
+            ]);
+        }
 
         if ($request->hasFile('banner')) {
             // dd($request);
@@ -136,22 +173,9 @@ class ServiceController extends Controller
         return redirect()->route('services.index')->with('success', 'Service updated successfully');
     }
 
-    public function show(Service $service)
-    {
-        return view('services.show', compact('service'));
-    }
-
     public function destroy(Service $service)
     {
-        // First, unlink the image from storage
-        if ($service->image && Storage::exists('public/' . $service->image)) {
-            Storage::delete('public/' . $service->image);
-        }
-
-        // Then, delete the service from the database
         $service->delete();
-
-        // Redirect to index page with a success message
-        return redirect()->route('services.index')->with('success', 'Service deleted successfully');
+        return redirect()->route('services.index')->with('success', 'Service deleted.');
     }
 }

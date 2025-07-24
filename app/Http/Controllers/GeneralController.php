@@ -15,6 +15,10 @@ class GeneralController extends Controller
 {
     public function index(){
         $services = Service::where("status",1)->get();
+            // $services = Service::with('children')
+            // ->whereNull('parent_id')
+            // ->where('status', 'active')
+            // ->get();
         $sliders = Slider::where("status",true)->get();
         return view("index",compact("services","sliders"));
     }

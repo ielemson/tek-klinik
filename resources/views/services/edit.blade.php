@@ -29,8 +29,8 @@
                     <div class="form-group">
                         <label for="header">Status</label>
                         <select class="form-control" name="status" id="">
-                            <option value="1" {{ $service->status == 1 ? 'selected':''}}>Active</option>
-                            <option value="0" {{ $service->status == 0 ? 'selected':''}}>Inactive</option>
+                            <option value="active" {{ $service->status == "active" ? 'selected':''}}>Active</option>
+                            <option value="inactive" {{ $service->status == "inactive" ? 'selected':''}}>Inactive</option>
                         </select>
                     </div>
                 </div>

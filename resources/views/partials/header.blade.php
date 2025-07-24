@@ -1,6 +1,6 @@
    
-   @php
-    $header_setting = \App\Models\Setting::find(1);
+@php
+$header_setting = \App\Models\Setting::find(1);
 @endphp
  
    <!-- Start Header Top 
@@ -90,7 +90,7 @@
                                 </li>
                                  @if (count($services)>0)
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >IT Services</a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Our Services</a>
                                     <ul class="dropdown-menu">
                                         @foreach ($services as $service)
                                         <li><a href="{{ route("our.service",$service->slug) }}">{{$service->title}}</a></li>
@@ -110,19 +110,6 @@
                                     </ul>
                                 </li>
                               
-
-                                {{-- <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Account</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="https://tek-klinik.com/webmail" target="_blank">Web Mail</a></li>
-
-                                          @if(Auth::check())
-                                      <li><a href="{{ route("home") }}">Dashboard</a></li>
-                                        @else
-                                     <li><a href="{{route("login")}}">Account Login</a></li>
-                                        @endif
-                                    </ul>
-                                </li> --}}
                                 <li><a href="{{route("contact")}}">contact</a></li>
                             </ul>
                         </div>
