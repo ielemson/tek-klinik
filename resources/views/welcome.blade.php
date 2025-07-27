@@ -5,7 +5,7 @@
 @extends("layouts.frontend")
 
 @section("title")
-	Home
+Reliable, Cost-Effective Cybersecurity & IT Support Services
 @endsection
 @section("content")
 

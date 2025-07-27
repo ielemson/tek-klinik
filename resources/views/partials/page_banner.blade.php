@@ -6,7 +6,7 @@
                 <div class="col-lg-8 offset-lg-2">
                     <h1>{{$title ?? ""}}</h1>
                     <ul class="breadcrumb">
-                        <li><a href="{{route("home")}}"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="{{url("/")}}"><i class="fas fa-home"></i> Home</a></li>
                         <li>{{$title1 ?? ""}}</li>
                     </ul>
                 </div>

@@ -1,8 +1,6 @@
-
 @php
-    $setting = \App\Models\Setting::find(1);
+$setting = \App\Models\Setting::find(1);
 @endphp
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +20,7 @@
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- ========== Page Title ========== -->
-    <title>@yield('title')|{{ $setting->website_title }}</title>
+    <title>@yield('title') :: {{ $setting->website_title }}</title>
 
     <!-- ========== Favicon Icon ========== -->
     <link rel="shortcut icon" href="{{ asset("images/settings/$setting->website_favicon") }}" type="image/x-icon">
@@ -49,13 +47,7 @@
 
 <body>
 
-    <!--[if lte IE 9]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-    <![endif]-->
-
-    <!-- Start Preloader 
-    ============================================= -->
-    <div id="preloader">
+    {{-- <div id="preloader">
         <div class="tranzi-loader-inner">
            <div class="tranzi-loader">
               <span class="tranzi-loader-item"></span>
@@ -68,8 +60,7 @@
               <span class="tranzi-loader-item"></span>
            </div>
         </div>
-     </div>
-    <!-- preloader end -->
+     </div> --}}
 
      @yield("content")
 

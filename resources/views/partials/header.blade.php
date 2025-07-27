@@ -81,9 +81,9 @@ $header_setting = \App\Models\Setting::find(1);
                             </button>
                             
                             <ul class="nav navbar-nav navbar-center" data-in="fadeInDown" data-out="fadeOutUp">
-                                <li class="megamenu-fw megamenu-style-one">
+                                {{-- <li class="megamenu-fw megamenu-style-one">
                                     <a href="{{route("welcome")}}" class="dropdown-toggle" data-toggle="dropdown">Home</a>
-                                </li>
+                                </li> --}}
                                 <li class="dropdown megamenu-fw megamenu-style-three">
                                     <a href="{{route("about")}}" class="">About Us</a>
                                     
@@ -110,6 +110,7 @@ $header_setting = \App\Models\Setting::find(1);
                                     </ul>
                                 </li>
                               
+                                <li><a href="{{route("careers")}}">Careers</a></li>
                                 <li><a href="{{route("contact")}}">contact</a></li>
                             </ul>
                         </div>

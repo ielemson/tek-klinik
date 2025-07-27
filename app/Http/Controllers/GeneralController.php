@@ -27,6 +27,10 @@ class GeneralController extends Controller
         $services = Service::where("status",1)->get();
         return view("about",compact("services"));
     }
+    public function career(){
+        $services = Service::where("status",1)->get();
+        return view("careers",compact("services"));
+    }
 
     public function contact(){
         $services = Service::where("status",1)->get();

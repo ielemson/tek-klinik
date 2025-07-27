@@ -1,6 +1,6 @@
 @extends("layouts.frontend")
 @section("title")
-	Home
+	Reliable, Cost-Effective Cybersecurity & IT Support Services
 @endsection
 @php
     $setting = \App\Models\Setting::find(1);
@@ -15,9 +15,9 @@
 
     <!-- Start Banner Area 
     ============================================= -->
-    @if (count($sliders) > 0)
+    {{-- @if (count($sliders) > 0) --}}
     @include("partials.home_banner")
-    @endif
+    {{-- @endif --}}
     <!-- End Main -->
 
     <!-- Start About 
@@ -31,9 +31,9 @@
   @include("partials.why_choose_us")
     <!-- End Why Choose Us -->
 
-    @if (count($services)>0)
+    {{-- @if (count($services)>0) --}}
     @include("partials.service-section")
-    @endif
+    {{-- @endif --}}
 
     {{-- @include("partials.home_contact_us") --}}
     @include("partials.vision-and-mission")
