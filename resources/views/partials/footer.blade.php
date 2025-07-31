@@ -178,7 +178,7 @@
                             <h4 class="widget-title">Our Company</h4>
                             <ul>
                                 <li>
-                                    <a href="{{route("about")}}">Compnay Profile</a>
+                                    <a href="{{route("about")}}">Company Profile</a>
                                 </li>
                                 <li>
                                     <a href="{{route("contact")}}">Help Center</a>
