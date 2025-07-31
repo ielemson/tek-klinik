@@ -11,7 +11,8 @@ $header_setting = \App\Models\Setting::find(1);
                 <div class="col-xl-6 col-lg-8 offset-xl-3 pl-30 pl-md-15 pl-xs-15">
                     <ul class="item-flex">
                         <li>
-                            <i class="fas fa-map-marker-alt"></i>    {!!  \Illuminate\Support\Str::limit($header_setting->address, 33, '...')  !!}
+                            <i class="fas fa-envelope-open-text"></i>
+                            {{$header_setting->email}} 
                         </li>
                         <li>
                             <a href="tel:+{{$header_setting->phone}}"><i class="fas fa-phone-alt"></i>{{$header_setting->phone}}</a>
