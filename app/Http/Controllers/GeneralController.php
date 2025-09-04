@@ -97,9 +97,9 @@ class GeneralController extends Controller
         // }
 
         // Mail::to('info@tek-klinik.com')->send(new BookMeeting($request->all()));
-
+        
         return response()->json([
-            'message' => $request->all()
+            'message' => "Email sent"
         ], 200);
     }
 
