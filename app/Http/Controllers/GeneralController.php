@@ -92,14 +92,14 @@ class GeneralController extends Controller
             'captcha'      => 'required|captcha',
         ]);
 
-        // if ($validator->fails()) {
-        //     return response()->json(['errors' => $validator->errors()], 422);
-        // }
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
 
-        // Mail::to('info@tek-klinik.com')->send(new BookMeeting($request->all()));
-        
+        Mail::to('info@tek-klinik.com')->send(new BookMeeting($request->all()));
+
         return response()->json([
-            'message' => "Email sent"
+            'message' => 'Your meeting has been booked successfully!'
         ], 200);
     }
 
