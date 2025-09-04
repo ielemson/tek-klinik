@@ -29,12 +29,12 @@ Auth::routes([
 Route::get('/', [App\Http\Controllers\GeneralController::class, 'index'])->name('welcome');
 Route::get('/about', [App\Http\Controllers\GeneralController::class, 'about'])->name('about');
 Route::get('/contact-us', [App\Http\Controllers\GeneralController::class, 'contact'])->name('contact');
-Route::get('/book-meeting', [App\Http\Controllers\GeneralController::class, 'book_meeting'])->name('book.meeting');
-Route::post('/book-meeting', [App\Http\Controllers\GeneralController::class, 'schedule_meeting'])->name('schedule_meeting');
-Route::post('/contact/submit', [App\Http\Controllers\GeneralController::class, 'contact_submit'])->name('contact.send');
+Route::get('/book-meeting', [App\Http\Controllers\GeneralController::class, 'bookMeeting'])->name('book.meeting');
+Route::post('/book-meeting', [App\Http\Controllers\GeneralController::class, 'scheduleMeeting'])->name('schedule_meeting');
+Route::post('/contact/submit', [App\Http\Controllers\GeneralController::class, 'contactSubmit'])->name('contact.send');
 Route::get('/careers', [App\Http\Controllers\GeneralController::class, 'career'])->name('careers');
-Route::get('/our-service/{slug}', [App\Http\Controllers\GeneralController::class, 'our_service'])->name('our.service');
-Route::get('/our-services', [App\Http\Controllers\GeneralController::class, 'our_services'])->name('our.services');
+Route::get('/our-service/{slug}', [App\Http\Controllers\GeneralController::class, 'ourService'])->name('our.service');
+Route::get('/our-services', [App\Http\Controllers\GeneralController::class, 'ourServices'])->name('our.services');
 Route::get('/reload-captcha', [App\Http\Controllers\GeneralController::class, 'refreshCaptcha'])->name("captcha.refresh");
 
 
@@ -49,7 +49,6 @@ Route::get('/clear-cache', function () {
 });
 
 // Storage Link
-
 Route::get('/create-storage-link', function () {
     Artisan::call('storage:link');
     return 'Storage link created successfully.';
@@ -73,7 +72,6 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::resource('permission', 'PermissionController');
 
-
     Route::get('/profile', 'UserController@profile')->name('user.profile');
 
     Route::post('/profile', 'UserController@postProfile')->name('user.postProfile');
@@ -81,8 +79,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/password/change', 'UserController@getPassword')->name('userGetPassword');
 
     Route::post('/password/change', 'UserController@postPassword')->name('userPostPassword');
-
-
 
 });
 
