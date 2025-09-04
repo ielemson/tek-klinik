@@ -222,7 +222,9 @@ Book a meeting with us today
                             });
                             swal("Error!", errorMessage, "error");
                             $('.spinner-border').hide(); // Hide spinner
-                             document.getElementById("bookButton").disabled = false;
+                               $('#btn-refresh').click(); // Refresh captcha image
+                            $('.spinner-border').hide(); // Hide spinner
+                            document.getElementById("bookButton").disabled = false;
                         }
                     });
                 }
